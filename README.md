@@ -22,9 +22,8 @@ It includes:
 - 💻 Practical Codes  
 - 📄 Assignments & Solutions  
 - 📘 Notes & Study Material  
-- 🧠 Viva Questions  
 - 📝 Previous Year Papers  
-- 🚀 Mini Projects  
+
 
 ---
 
@@ -36,3 +35,42 @@ It includes:
 ---
 
 ## 🗂️ Folder Structure
+📦 SPPU-Engineering-Resources
+┣ 📂 SE
+┣ 📂 TE
+┣ 📂 BE
+┗ 📜 README.md
+
+
+---
+
+## 🚀 How to Use
+
+1️⃣ Open folder 
+2️⃣ Choose subject  
+3️⃣ Explore codes 
+
+---
+
+## 🌐 Connect With Me
+
+<p align="center">
+  <a href="https://github.com/madhuri-cha">
+    <img src="https://img.shields.io/badge/GitHub-Profile-black?style=for-the-badge&logo=github" />
+  </a>
+</p>
+
+---
+
+## ⭐ Support
+
+If this helps you:
+
+🌟 Star this repo  
+📢 Share with friends  
+
+---
+
+<p align="center">
+  ❤️ Made with love by Madhuri Chavan
+</p>
