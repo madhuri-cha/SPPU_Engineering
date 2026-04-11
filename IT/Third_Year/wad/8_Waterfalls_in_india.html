@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majestic Waterfalls of India</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a6fc9;
+            --secondary-color: #20c997;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+        }
+        
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .portal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .portal-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .waterfall-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .waterfall-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .waterfall-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .waterfall-content {
+            padding: 20px;
+        }
+        
+        .waterfall-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .btn-waterfall {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .btn-waterfall:hover {
+            background-color: #14569b;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(26, 111, 201, 0.3);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 70px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-3px);
+            color: var(--secondary-color);
+        }
+        
+        #reachModal .modal-header {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .location-icon {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-right: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .portal-title {
+                font-size: 2.5rem;
+            }
+            
+            .header {
+                padding: 80px 0;
+            }
+            
+            .waterfall-img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-water me-2"></i>India Falls
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#waterfalls">Waterfalls</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-waterfall ms-lg-2 mt-2 mt-lg-0" data-bs-toggle="modal" data-bs-target="#reachModal">
+                            How to Reach
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="header" id="home">
+        <div class="container">
+            <h1 class="portal-title">Majestic Waterfalls of India</h1>
+            <p class="portal-subtitle">Discover the breathtaking beauty of India's natural wonders</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Waterfalls Section -->
+        <section id="waterfalls" class="my-5">
+            <h2 class="text-center mb-5">Famous Waterfalls</h2>
+            
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="waterfall-card">
+                        <img src="https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Jog Falls" class="waterfall-img">
+                        <div class="waterfall-content">
+                            <h3 class="waterfall-title">Jog Falls</h3>
+                            <p><i class="fas fa-map-marker-alt location-icon"></i> Shimoga, Karnataka</p>
+                            <p>Jog Falls is the second-highest plunge waterfall in India. Located on the Sharavathi River, it drops 253 meters (830 ft) in four distinct cascades known as Raja, Rani, Rover, and Rocket.</p>
+                            <button class="btn btn-waterfall" data-bs-toggle="modal" data-bs-target="#reachModal">
+                                How to Reach
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="waterfall-card">
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Dudhsagar Falls" class="waterfall-img">
+                        <div class="waterfall-content">
+                            <h3 class="waterfall-title">Dudhsagar Falls</h3>
+                            <p><i class="fas fa-map-marker-alt location-icon"></i> Goa-Karnataka border</p>
+                            <p>Dudhsagar Falls is a four-tiered waterfall on the Mandovi River with a total height of 310 meters (1017 ft). The falls are named for their appearance of milk streaming down the mountain.</p>
+                            <button class="btn btn-waterfall" data-bs-toggle="modal" data-bs-target="#reachModal">
+                                How to Reach
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="waterfall-card">
+                        <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Athirappilly Falls" class="waterfall-img">
+                        <div class="waterfall-content">
+                            <h3 class="waterfall-title">Athirappilly Falls</h3>
+                            <p><i class="fas fa-map-marker-alt location-icon"></i> Thrissur, Kerala</p>
+                            <p>Known as the "Niagara of India," Athirappilly Falls is the largest waterfall in Kerala, dropping 25 meters (82 ft). The falls are located on the Chalakudy River in the Sholayar ranges.</p>
+                            <button class="btn btn-waterfall" data-bs-toggle="modal" data-bs-target="#reachModal">
+                                How to Reach
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="waterfall-card">
+                        <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Nohkalikai Falls" class="waterfall-img">
+                        <div class="waterfall-content">
+                            <h3 class="waterfall-title">Nohkalikai Falls</h3>
+                            <p><i class="fas fa-map-marker-alt location-icon"></i> Cherrapunji, Meghalaya</p>
+                            <p>Nohkalikai Falls is the tallest plunge waterfall in India, dropping 340 meters (1115 ft). The falls are fed by rainwater collected on the summit of the plateau and are most spectacular during monsoon.</p>
+                            <button class="btn btn-waterfall" data-bs-toggle="modal" data-bs-target="#reachModal">
+                                How to Reach
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="waterfall-card">
+                        <img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Kunchikal Falls" class="waterfall-img">
+                        <div class="waterfall-content">
+                            <h3 class="waterfall-title">Kunchikal Falls</h3>
+                            <p><i class="fas fa-map-marker-alt location-icon"></i> Shimoga, Karnataka</p>
+                            <p>Kunchikal Falls is the highest waterfall in India with a total height of 455 meters (1493 ft). Located on the Varahi River, these falls are part of a hydroelectric project and access is restricted.</p>
+                            <button class="btn btn-waterfall" data-bs-toggle="modal" data-bs-target="#reachModal">
+                                How to Reach
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="waterfall-card">
+                        <img src="https://images.unsplash.com/photo-1420745981456-b95fe23f5753?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Barehipani Falls" class="waterfall-img">
+                        <div class="waterfall-content">
+                            <h3 class="waterfall-title">Barehipani Falls</h3>
+                            <p><i class="fas fa-map-marker-alt location-icon"></i> Mayurbhanj, Odisha</p>
+                            <p>Barehipani Falls is the second highest waterfall in India with a total height of 399 meters (1309 ft). Located in Simlipal National Park, it's a two-tiered waterfall on the Budhabalanga River.</p>
+                            <button class="btn btn-waterfall" data-bs-toggle="modal" data-bs-target="#reachModal">
+                                How to Reach
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+
+    <!-- How to Reach Modal -->
+    <div class="modal fade" id="reachModal" tabindex="-1" aria-labelledby="reachModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reachModalLabel">How to Reach Waterfalls in India</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-4">
+                        <h4><i class="fas fa-plane text-primary me-2"></i> By Air</h4>
+                        <p>Most major waterfalls are accessible via nearby airports. For example:</p>
+                        <ul>
+                            <li>Jog Falls: Hubli Airport (100 km away)</li>
+                            <li>Dudhsagar Falls: Dabolim Airport, Goa (60 km away)</li>
+                            <li>Athirappilly Falls: Cochin International Airport (55 km away)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4><i class="fas fa-train text-success me-2"></i> By Train</h4>
+                        <p>Indian Railways provides good connectivity to many waterfall locations:</p>
+                        <ul>
+                            <li>Jog Falls: Nearest station is Talguppa (10 km away)</li>
+                            <li>Dudhsagar Falls: Nearest station is Castle Rock (14 km away)</li>
+                            <li>Nohkalikai Falls: Nearest station is Guwahati (150 km away)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h4><i class="fas fa-car text-warning me-2"></i> By Road</h4>
+                        <p>Most waterfalls are accessible by road, though some may require trekking:</p>
+                        <ul>
+                            <li>Well-maintained roads connect to major waterfalls</li>
+                            <li>Local taxis and buses available from nearby towns</li>
+                            <li>Some remote falls require 4WD vehicles or hiking</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i> <strong>Tip:</strong> The best time to visit most waterfalls is during or just after the monsoon season (June-September) when water flow is at its peak.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-water me-2"></i>India Falls</h5>
+                    <p>Exploring and showcasing the magnificent waterfalls of India. Our mission is to promote eco-tourism and conservation of these natural wonders.</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="#home" class="d-block mb-2">Home</a>
+                        <a href="#waterfalls" class="d-block mb-2">Waterfalls</a>
+                        <a href="#about" class="d-block mb-2">About</a>
+                        <a href="#" class="d-block mb-2" data-bs-toggle="modal" data-bs-target="#reachModal">How to Reach</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Connect With Us</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <p><i class="fas fa-envelope me-2"></i> contact@indiafalls.example</p>
+                        <p><i class="fas fa-phone-alt me-2"></i> +91 98765 43210</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-light my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 India Falls. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Dynamic modal content based on which waterfall's button was clicked
+        document.querySelectorAll('.btn-waterfall').forEach(button => {
+            button.addEventListener('click', function() {
+                const waterfallTitle = this.closest('.waterfall-card').querySelector('.waterfall-title').textContent;
+                document.getElementById('reachModalLabel').textContent = `How to Reach ${waterfallTitle}`;
+            });
+        });
+    </script>
+</body>
+</html>

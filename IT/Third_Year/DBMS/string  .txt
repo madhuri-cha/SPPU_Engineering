@@ -1,0 +1,10 @@
+string : 
+Suppose the user inputs the string: "hello world hello"
+
+str becomes "hello world hello"
+words becomes ['hello', 'world', 'hello']
+The loop iterates over each word in words:
+For the first hello, since it's not in data, it adds {'hello': 1}
+For world, since it's not in data, it adds {'hello': 1, 'world': 1}
+For the second hello, since it's already in data, it updates the count to {'hello': 2, 'world': 1}
+The function returns {'hello': 2, 'world': 1}

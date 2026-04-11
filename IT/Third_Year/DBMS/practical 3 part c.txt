@@ -1,0 +1,198 @@
+ create trigger acc_log
+  after update
+  on account
+  for each row
+  begin
+  declare tran_type varchar(20);
+  declare amt varchar(20);
+  if old.amount > new.amount then
+  SET tran_type='Withdraw';
+  SET amt=old.amount-new.amount;
+  else
+  SET tran_type='Deposited';
+  SET amt=new.amount-old.amount;
+  end if;
+  insert into account_log values(old.acc_no,old.name,amt,tran_type,now());
+  end //
+
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| information_schema |
+| madhutb            |
+| mysql              |
+| performance_schema |
+| pvg                |
+| pvg1               |
+| pvgse              |
+| sys                |
++--------------------+
+9 rows in set (0.09 sec)
+
+mysql> use pvg;
+Database changed
+mysql> show tables;
++---------------+
+| Tables_in_pvg |
++---------------+
+| order_logs    |
+| orders        |
+| student       |
++---------------+
+3 rows in set (0.01 sec)
+
+mysql> select *from student
+    -> ;
++------+-------+------+------+------+-------+------------+-------+
+| sno  | name  | sub1 | sub2 | sub3 | total | percentage | grade |
++------+-------+------+------+------+-------+------------+-------+
+|    1 | dev   |   66 |   78 |   66 |   210 |      70.00 | PASS  |
+|    2 | ajit  |   86 |   72 |   66 |   224 |      74.67 | PASS  |
+|    3 | diya  |   86 |   88 |   90 |   264 |      88.00 | PASS  |
+|    4 | jit   |   86 |   72 |   66 |   238 |      79.33 | PASS  |
+|    5 | riya  |   82 |   81 |   90 |   253 |      84.33 | PASS  |
+|    6 | rina  |   52 |   61 |   50 |   163 |      54.33 | PASS  |
+|    7 | rina  |   72 |   61 |   70 |   203 |      67.67 | PASS  |
+|    8 | jay   |   93 |   81 |   90 |   264 |      88.00 | PASS  |
+|    9 | ajay  |   93 |   81 |   90 |   264 |      88.00 | PASS  |
+|    4 | mansi |   80 |   72 |   86 |   238 |      79.33 | PASS  |
++------+-------+------+------+------+-------+------------+-------+
+10 rows in set (0.01 sec)
+
+mysql> use pvg1;
+Database changed
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> use pvgse;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_pvgse |
++-----------------+
+| account         |
+| account_log     |
++-----------------+
+2 rows in set (0.00 sec)
+
+mysql> select *from account;
++--------+-------+--------+
+| acc_no | name  | amount |
++--------+-------+--------+
+|      1 | RAJ   |  20000 |
+|      2 | yash  |  30000 |
+|      3 | dev   |  40000 |
+|      4 | tina  |  50000 |
+|      5 | gargi |  60000 |
++--------+-------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select *from account_log;
+Empty set (0.00 sec)
+
+mysql> delimiter //
+mysql>  create trigger acc_log
+    ->   after update
+    ->   on account
+    ->   for each row
+    ->   begin
+    ->   declare tran_type varchar(20);
+    ->   declare amt varchar(20);
+    ->   if old.amount > new.amount then
+    ->   SET tran_type='Withdraw';
+    ->   SET amt=old.amount-new.amount;
+    ->   else
+    ->   SET tran_type='Deposited';
+    ->   SET amt=new.amount-old.amount;
+    ->   end if;
+    ->   insert into account_log values(old.acc_no,old.name,amt,tran_type,now());
+    ->   end //
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc account_log;
+    -> //
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| acc_no    | int         | YES  |     | NULL    |       |
+| name      | varchar(20) | YES  |     | NULL    |       |
+| amount    | int         | YES  |     | NULL    |       |
+| tran_type | varchar(40) | YES  |     | NULL    |       |
+| tran_time | timestamp   | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> update account set amount = '60000'
+    -> where acc_no = '1';
+    -> //
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from account;
+    -> //
++--------+-------+--------+
+| acc_no | name  | amount |
++--------+-------+--------+
+|      1 | RAJ   |  60000 |
+|      2 | yash  |  30000 |
+|      3 | dev   |  40000 |
+|      4 | tina  |  50000 |
+|      5 | gargi |  60000 |
++--------+-------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from account;//
++--------+-------+--------+
+| acc_no | name  | amount |
++--------+-------+--------+
+|      1 | RAJ   |  60000 |
+|      2 | yash  |  30000 |
+|      3 | dev   |  40000 |
+|      4 | tina  |  50000 |
+|      5 | gargi |  60000 |
++--------+-------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from account_log;
+    -> //
++--------+------+--------+-----------+---------------------+
+| acc_no | name | amount | tran_type | tran_time           |
++--------+------+--------+-----------+---------------------+
+|      1 | RAJ  |  40000 | Deposited | 2024-04-08 12:03:34 |
++--------+------+--------+-----------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> update account set amount = 10000
+    -> where acc_no = '2';
+    -> //
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from account;//
++--------+-------+--------+
+| acc_no | name  | amount |
++--------+-------+--------+
+|      1 | RAJ   |  60000 |
+|      2 | yash  |  10000 |
+|      3 | dev   |  40000 |
+|      4 | tina  |  50000 |
+|      5 | gargi |  60000 |
++--------+-------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from account_log;
+    -> //
++--------+------+--------+-----------+---------------------+
+| acc_no | name | amount | tran_type | tran_time           |
++--------+------+--------+-----------+---------------------+
+|      1 | RAJ  |  40000 | Deposited | 2024-04-08 12:03:34 |
+|      2 | yash |  20000 | Withdraw  | 2024-04-08 12:05:49 |
++--------+------+--------+-----------+---------------------+
+2 rows in set (0.00 sec)
+
+mysql>

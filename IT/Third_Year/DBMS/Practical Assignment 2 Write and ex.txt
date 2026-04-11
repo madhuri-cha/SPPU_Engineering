@@ -1,0 +1,32 @@
+
++--------+--------+--------+
+| acc_no | name | amount |
++--------+--------+--------+
+| 1 | RAJ | 5000 |
+| 2 | AJAY | 3000 |
+| 3 | RAHUL | 6000 |
+| 4 | AMIT | 7000 |
+| 5 | SATISH | 8000 |
++--------+--------+--------+
+5 rows in set (0.00 sec)
+mysql>  select * from account_log;//
++--------+------+--------+-----------+---------------------+
+| acc_no | name | amount | tran_type | tran_time           |
++--------+------+--------+-----------+---------------------+
+|      1 | RAJ  |   3000 | Deposited | 2024-04-29 10:38:27 |
++--------+------+--------+-----------+---------------------+
+1 row in set (0.00 sec)
+mysql> update account set amount=4000 where acc_no=1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1 Changed: 1 Warnings: 0
+mysql> select * from account;
++--------+--------+--------+
+| acc_no | name | amount |
++--------+--------+--------+
+| 1 | RAJ | 4000 |
+| 2 | AJAY | 3000 |
+| 3 | RAHUL | 6000 |
+| 4 | AMIT | 7000 |
+| 5 | SATISH | 8000 |
++--------+--------+--------+
+5 rows in set (0.00 sec)

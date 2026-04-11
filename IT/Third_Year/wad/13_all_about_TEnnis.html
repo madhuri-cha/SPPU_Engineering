@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Tennis Stars</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --tennis-green: #1b5e20;
+            --tennis-light-green: #4caf50;
+            --tennis-yellow: #ffeb3b;
+            --tennis-blue: #0d47a1;
+            --india-orange: #FF9933;
+            --india-green: #138808;
+            --india-blue: #000080;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--india-blue);
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1205&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .player-card {
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--india-orange);
+            border-bottom: 4px solid var(--india-green);
+        }
+        
+        .player-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .player-img {
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .section-title {
+            color: var(--india-blue);
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--india-orange);
+        }
+        
+        .rules-list li {
+            margin-bottom: 10px;
+        }
+        
+        .tournament-card {
+            border-left: 5px solid var(--india-blue);
+            transition: all 0.3s;
+        }
+        
+        .tournament-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            background-color: var(--india-blue);
+            color: white;
+            padding: 30px 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--india-orange);
+        }
+        
+        .achievements-modal img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        
+        .btn-india {
+            background-color: var(--india-orange);
+            color: white;
+            border: none;
+        }
+        
+        .btn-india:hover {
+            background-color: #e68a00;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-tennis-ball me-2"></i>Indian Tennis Stars</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#players">Players</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#rules">Rules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tournaments">Tournaments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-4">Indian Tennis Legends</h1>
+            <p class="lead mb-5">Celebrating India's finest tennis players and their achievements</p>
+            <a href="#players" class="btn btn-india btn-lg px-4 py-2">Explore Players</a>
+        </div>
+    </header>
+
+    <!-- Players Section -->
+    <section id="players" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center section-title">Top Indian Tennis Players</h2>
+            <div class="row">
+                <!-- Player 1 -->
+                <div class="col-md-4">
+                    <div class="card player-card">
+                        <img src="C:\Users\joshi\Downloads\ramkumar.jpeg" class="card-img-top player-img" alt="Ramkumar Ramanathan">
+                        <div class="card-body">
+                            <h5 class="card-title">Ramkumar Ramanathan</h5>
+                            <p class="card-text">India's top-ranked singles player in recent years.</p>
+                            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#ramkumarModal">View Achievements</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Player 2 -->
+                <div class="col-md-4">
+                    <div class="card player-card">
+                        <img src="C:\Users\joshi\Downloads\saniya_mirza.jpg" class="card-img-top player-img" alt="Sania Mirza">
+                        <div class="card-body">
+                            <h5 class="card-title">Sania Mirza</h5>
+                            <p class="card-text">India's most successful women's tennis player.</p>
+                            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#saniaModal">View Achievements</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Player 3 -->
+                <div class="col-md-4">
+                    <div class="card player-card">
+                        <img src="C:\Users\joshi\Downloads\Leander.jpeg" class="card-img-top player-img" alt="Leander Paes">
+                        <div class="card-body">
+                            <h5 class="card-title">Leander Paes</h5>
+                            <p class="card-text">Indian tennis legend with Olympic medal.</p>
+                            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#paesModal">View Achievements</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Basic Tennis Rules</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="fas fa-list-ol text-primary me-2"></i>Scoring System</h4>
+                            <ul class="rules-list">
+                                <li>Points progress from love (0) to 15, 30, 40, then game</li>
+                                <li>If both players reach 40, it's called deuce</li>
+                                <li>After deuce, a player must win two consecutive points to win the game</li>
+                                <li>First to win 6 games (with a 2-game lead) wins the set</li>
+                                <li>Matches are usually best of 3 or 5 sets</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="fas fa-flag text-primary me-2"></i>Game Rules</h4>
+                            <ul class="rules-list">
+                                <li>The ball must land within the boundaries of the court</li>
+                                <li>Players get two attempts for a successful serve</li>
+                                <li>The ball can only bounce once before being returned</li>
+                                <li>Players cannot touch the net or cross over to opponent's side</li>
+                                <li>A let is called if the serve hits the net but lands in</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournaments Section -->
+    <section id="tournaments" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center section-title">Indian Tennis Tournaments</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 tournament-card">
+                        <img src="https://img.olympicchannel.com/images/image/private/t_16-9_3200/primary/vzwhwdm8d1q4lq6mzq1e" class="card-img-top" alt="Chennai Open">
+                        <div class="card-body">
+                            <h5 class="card-title">Chennai Open</h5>
+                            <p class="card-text"><strong>When:</strong> January</p>
+                            <p class="card-text"><strong>Surface:</strong> Hard court</p>
+                            <p class="card-text"><strong>Location:</strong> Chennai, India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 tournament-card">
+                        <img src="https://images.livemint.com/img/2022/09/26/600x338/PTI09-25-2022-000248B-0_1664183064571_1664183064571_1664183081846_1664183081846.jpg" class="card-img-top" alt="Pune Open">
+                        <div class="card-body">
+                            <h5 class="card-title">Pune Open</h5>
+                            <p class="card-text"><strong>When:</strong> January</p>
+                            <p class="card-text"><strong>Surface:</strong> Hard court</p>
+                            <p class="card-text"><strong>Location:</strong> Pune, India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 tournament-card">
+                        <img src="https://www.deccanchronicle.com/sites/default/files/styles/facebook/public/2019/02/12/tennis.jpg" class="card-img-top" alt="Delhi Open">
+                        <div class="card-body">
+                            <h5 class="card-title">Delhi Open</h5>
+                            <p class="card-text"><strong>When:</strong> February</p>
+                            <p class="card-text"><strong>Surface:</strong> Hard court</p>
+                            <p class="card-text"><strong>Location:</strong> New Delhi, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="text-center">
+        <div class="container">
+            <div class="social-icons mb-4">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="mb-2">&copy; 2023 Indian Tennis Stars. All rights reserved.</p>
+            <p>Celebrating India's tennis legacy</p>
+        </div>
+    </footer>
+
+    <!-- Player Achievement Modals -->
+    <!-- Ramkumar Modal -->
+    <div class="modal fade" id="ramkumarModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ramkumar Ramanathan's Achievements</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body achievements-modal">
+                    <img src="https://www.thehindu.com/sport/tennis/7m8r8l/article32600101.ece/ALTERNATES/LANDSCAPE_1200/Ramkumar-Ramanathan" class="img-fluid" alt="Ramkumar Ramanathan">
+                    <ul>
+                        <li>Career-high ATP singles ranking of 111 (achieved in 2018)</li>
+                        <li>First Indian to reach an ATP Tour final since 2011 (Newport 2017)</li>
+                        <li>Won 5 ITF Futures singles titles and 3 doubles titles</li>
+                        <li>Represented India in Davis Cup since 2014</li>
+                        <li>Gold medal in men's doubles at 2018 Asian Games (with Rohan Bopanna)</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sania Modal -->
+    <div class="modal fade" id="saniaModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sania Mirza's Achievements</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body achievements-modal">
+                    <img src="https://static.toiimg.com/thumb/msid-96929145,width-1200,height-900,resizemode-4/.jpg" class="img-fluid" alt="Sania Mirza">
+                    <ul>
+                        <li>First Indian woman to win a WTA title (2005)</li>
+                        <li>6 Grand Slam doubles titles (3 in women's doubles, 3 in mixed doubles)</li>
+                        <li>Former world No. 1 in doubles (achieved in 2015)</li>
+                        <li>4 medals at Asian Games (including 2 golds)</li>
+                        <li>Arjuna Award, Padma Shri, and Rajiv Gandhi Khel Ratna recipient</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paes Modal -->
+    <div class="modal fade" id="paesModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Leander Paes's Achievements</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body achievements-modal">
+                    <img src="https://images.indianexpress.com/2021/03/Leander-Paes-1200.jpg" class="img-fluid" alt="Leander Paes">
+                    <ul>
+                        <li>Olympic bronze medal in singles (1996 Atlanta)</li>
+                        <li>18 Grand Slam titles (8 in men's doubles, 10 in mixed doubles)</li>
+                        <li>Career Grand Slam in doubles and mixed doubles</li>
+                        <li>Most doubles wins in Davis Cup history</li>
+                        <li>Padma Bhushan, Rajiv Gandhi Khel Ratna, and Arjuna Award recipient</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Change navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

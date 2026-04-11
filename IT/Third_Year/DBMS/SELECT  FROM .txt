@@ -1,0 +1,23 @@
+SELECT * FROM 
+(SELECT matchid,  m.manofthematch , pl.NameP, y.teamid, p.teamid as team1 FROM
+played as p NATURAL JOIN Mat as m 
+JOIN YearWisePlayerDetails as y on m.manofthematch = y.playerid and extract(year FROM m.Dates) = y.Years
+NATURAL JOIN players as pl WHERE p.winner = '1' and (p.teamid = 'CSK' or p.teamid = 'RCB') and y.Years = 2015) as r1
+NATURAL JOIN
+(SELECT matchid,  m.manofthematch , pl.NameP, y.teamid, p.teamid as team2 FROM
+played as p NATURAL JOIN Mat as m 
+JOIN YearWisePlayerDetails as y on m.manofthematch = y.playerid and extract(year FROM m.Dates) = y.Years
+NATURAL JOIN players as pl WHERE p.winner = '0' and (p.teamid = 'CSK' or p.teamid = 'RCB') and y.Years = 2015) as r2;
+
+mysql> SELECT * FROM
+    -> (SELECT matchid,  m.manofthematch , pl.NameP, y.teamid, p.teamid as team1 FROM
+    -> played as p NATURAL JOIN Mat as m
+    -> JOIN YearWisePlayerDetails as y on m.manofthematch = y.playerid and extract(year FROM m.Dates) = y.Years
+    -> NATURAL JOIN players as pl WHERE p.winner = '1' and (p.teamid = 'CSK' or p.teamid = 'RCB') and y.Years= 2015) as r1
+    -> NATURAL JOIN
+    -> (SELECT matchid,  m.manofthematch , pl.NameP, y.teamid, p.teamid as team2 FROM
+    -> played as p NATURAL JOIN Mat as m
+    -> JOIN YearWisePlayerDetails as y on m.manofthematch = y.playerid and extract(year FROM m.Dates) = y.Years
+    -> NATURAL JOIN players as pl WHERE p.winner = '0' and (p.teamid = 'CSK' or p.teamid = 'RCB') and y.Years = 2015) as r2
+    ->
+    -> SELECT Years, CoachID, CoachName, Teamid FROM headcoach NATURAL JOIN teamdetails WHERE Years = 2019;

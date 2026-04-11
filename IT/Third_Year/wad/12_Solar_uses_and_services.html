@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Energy Solutions - India</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #FFA500;
+            --secondary-color: #0056b3;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+        }
+        
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e69500;
+            border-color: #e69500;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        
+        .offer-card {
+            display: none;
+        }
+        
+        .offer-card.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-solar-panel me-2"></i>Solar India
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#offers">Offers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Solar Energy Solutions for India</h1>
+            <p class="lead mb-5">Harness the power of the sun with our affordable and efficient solar energy systems</p>
+            
+        </div>
+    </section>
+
+   
+
+    <!-- Services Section -->
+    <section class="py-5 bg-light" id="services">
+        <div class="container">
+            <h2 class="text-center section-title">Our Services</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h4 class="card-title">Residential Solar</h4>
+                            <p class="card-text">Complete solar solutions for homes, from 1kW to 10kW systems, with battery backup options.</p>
+                            <a href="#" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h4 class="card-title">Commercial Solar</h4>
+                            <p class="card-text">Customized solar solutions for businesses, factories, and commercial establishments.</p>
+                            <a href="#" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-solar-panel"></i>
+                            </div>
+                            <h4 class="card-title">Solar Maintenance</h4>
+                            <p class="card-text">Annual maintenance contracts and repair services to keep your system running efficiently.</p>
+                            <a href="#" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section -->
+    <section class="py-5" id="offers">
+        <div class="container">
+            <h2 class="text-center section-title">Special Offers</h2>
+            <div class="text-center mb-5">
+                <button class="btn btn-outline-primary mx-2 offer-btn active" data-offer="residential">Residential</button>
+                <button class="btn btn-outline-primary mx-2 offer-btn" data-offer="commercial">Commercial</button>
+                <button class="btn btn-outline-primary mx-2 offer-btn" data-offer="government">Government Subsidies</button>
+            </div>
+            
+            <div class="row">
+                <!-- Residential Offer -->
+                <div class="col-md-6 offer-card active" id="residential-offer">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title text-primary">Residential Solar Package</h3>
+                            <h5 class="text-muted mb-4">Starting at ₹55,000/kW*</h5>
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> 3kW system for ₹1,65,000 (after subsidy)</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> 5kW system for ₹2,50,000 (after subsidy)</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> 10-year performance warranty</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> Free site assessment</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> EMI options available</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-primary">Get This Offer</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Commercial Offer (hidden by default) -->
+                <div class="col-md-6 offer-card" id="commercial-offer">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title text-primary">Commercial Solar Package</h3>
+                            <h5 class="text-muted mb-4">Starting at ₹45,000/kW*</h5>
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> 20kW system for ₹9,00,000</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> 50kW system for ₹20,00,000</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> 12-year performance warranty</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> Free energy audit</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> Tax benefits available</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-primary">Get This Offer</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Government Subsidies (hidden by default) -->
+                <div class="col-md-6 offer-card" id="government-offer">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title text-primary">Government Subsidies</h3>
+                            <h5 class="text-muted mb-4">Up to 40% subsidy available</h5>
+                            <ul class="list-group list-group-flush mb-4">
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> 40% subsidy for systems up to 3kW</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> 20% subsidy for systems from 3kW to 10kW</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> 5% interest rate loans available</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> Net metering benefits</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success me-2"></i> We handle all subsidy paperwork</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-primary">Apply for Subsidy</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title text-primary">Calculate Your Savings</h3>
+                            <form id="savings-calculator">
+                                <div class="mb-3">
+                                    <label for="current-bill" class="form-label">Current Monthly Electricity Bill (₹)</label>
+                                    <input type="number" class="form-control" id="current-bill" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="roof-area" class="form-label">Available Roof Area (sq ft)</label>
+                                    <input type="number" class="form-control" id="roof-area" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="location" class="form-label">Your City</label>
+                                    <select class="form-select" id="location">
+                                        <option value="north">North India</option>
+                                        <option value="south">South India</option>
+                                        <option value="east">East India</option>
+                                        <option value="west">West India</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Calculate</button>
+                            </form>
+                            <div id="savings-result" class="mt-4 d-none">
+                                <h5>Estimated Results:</h5>
+                                <p id="system-size"></p>
+                                <p id="savings-amount"></p>
+                                <p id="payback-period"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+  
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h3 class="text-warning mb-4">Solar India</h3>
+                    <p>Leading solar energy solutions provider in India since 2010. Committed to sustainable energy and customer satisfaction.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5 class="text-warning mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="text-white">Home</a></li>
+                        <li class="mb-2"><a href="#about" class="text-white">About</a></li>
+                        <li class="mb-2"><a href="#services" class="text-white">Services</a></li>
+                        <li class="mb-2"><a href="#offers" class="text-white">Offers</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h5 class="text-warning mb-4">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white">Residential Solar</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Commercial Solar</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Solar Maintenance</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Subsidy Assistance</a></li>
+                        <li class="mb-2"><a href="#" class="text-white">Solar Consultancy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="text-warning mb-4">Newsletter</h5>
+                    <p>Subscribe to our newsletter for the latest updates on solar technology and offers.</p>
+                    <form class="mt-3">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-warning" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 Solar India. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> for a greener India</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Offer buttons functionality
+        document.querySelectorAll('.offer-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.offer-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Hide all offer cards
+                document.querySelectorAll('.offer-card').forEach(card => {
+                    card.classList.remove('active');
+                });
+                
+                // Show the selected offer card
+                const offerType = this.getAttribute('data-offer');
+                document.getElementById(`${offerType}-offer`).classList.add('active');
+            });
+        });
+        
+        // Savings calculator
+        document.getElementById('savings-calculator').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const currentBill = parseFloat(document.getElementById('current-bill').value);
+            const roofArea = parseFloat(document.getElementById('roof-area').value);
+            const location = document.getElementById('location').value;
+            
+            // Simple calculation (in a real app, this would be more complex)
+            const systemSize = Math.min(Math.floor(roofArea / 100), currentBill / 1000);
+            const savings = currentBill * 0.8; // Assuming 80% savings
+            const paybackYears = (systemSize * 50000) / (savings * 12); // Simple payback calculation
+            
+            // Display results
+            document.getElementById('system-size').textContent = `Recommended System: ${systemSize}kW`;
+            document.getElementById('savings-amount').textContent = `Estimated Monthly Savings: ₹${savings.toFixed(2)}`;
+            document.getElementById('payback-period').textContent = `Payback Period: ${paybackYears.toFixed(1)} years`;
+            
+            document.getElementById('savings-result').classList.remove('d-none');
+        });
+        
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you shortly.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

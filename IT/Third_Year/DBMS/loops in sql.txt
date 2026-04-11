@@ -1,0 +1,85 @@
+WHILE condition DO
+    -- SQL statements
+END WHILE;
+ 
+************
+Loops in SQL Database Management Systems (DBMS) allow you to iterate over a set of data or perform repetitive tasks based on certain conditions. While SQL itself is primarily a set-based language, meaning it operates on sets of data rather than individual elements, some DBMSs provide constructs for procedural programming, which includes looping.
+
+Here's an explanation of the common looping constructs you might encounter in SQL DBMS:
+
+1. **WHILE Loop:**
+   - **Purpose:** The `WHILE` loop is used to repeat a block of SQL statements as long as a specified condition evaluates to true.
+   - **Syntax:** 
+     ```sql
+     WHILE condition
+     BEGIN
+         -- SQL statements to execute
+     END;
+     ```
+   - **Example Use Case:** Iterating through a result set until a specific condition is met or a certain threshold is reached.
+
+2. **FOR Loop:**
+   - **Purpose:** Some SQL implementations support the `FOR` loop, which iterates over a range of values.
+   - **Syntax:** 
+     ```sql
+     FOR counter IN range LOOP
+         -- SQL statements to execute
+     END LOOP;
+     ```
+   - **Example Use Case:** When you know the exact number of iterations you need to perform, such as iterating a fixed number of times.
+
+3. **Cursor Loop:**
+   - **Purpose:** Cursors allow you to process individual rows returned by a query. You can use a cursor inside a loop to iterate over the result set.
+   - **Syntax:** 
+     ```sql
+     DECLARE cursor_name CURSOR FOR
+         SELECT column_name FROM table_name;
+     
+     OPEN cursor_name;
+     
+     FETCH cursor_name INTO variable;
+     
+     WHILE @@FETCH_STATUS = 0
+     BEGIN
+         -- SQL statements to execute
+         FETCH cursor_name INTO variable;
+     END;
+     
+     CLOSE cursor_name;
+     ```
+   - **Example Use Case:** When you need to process each row returned by a query individually, performing operations or calculations on each row.
+
+These looping constructs provide procedural capabilities within SQL, allowing you to handle more complex logic and operations that can't be achieved with simple set-based operations alone. However, it's important to use loops judiciously in SQL, as set-based operations are typically more efficient and better aligned with the relational nature of SQL databases.
+
+1)BREAK
+DECLARE @i INT = 10;
+ 
+WHILE @i <= 30
+	BEGIN
+		PRINT (@i);
+		SET @i = @i + 10;
+
+		IF @i = 30 BREAK;
+	END;
+
+2 )CONTINUE
+DECLARE @i INT = 10;
+ 
+WHILE @i <= 30
+	BEGIN
+   		SET @i = @i + 10;
+		PRINT (@i); 
+		
+		IF @i = 10 CONTINUE;
+	END;
+
+
+
+*************************************************
+Certainly! In the line `SELECT COUNT(*) INTO cnt FROM student;`, the `COUNT(*)` function is used to count the number of rows in the `student` table. Here's a breakdown of what each part does:
+
+- `COUNT(*)`: This is an aggregate function in SQL that counts the number of rows returned by a query. The `*` inside the parentheses means to count all rows.
+- `INTO cnt`: This clause is used to store the result of the `COUNT(*)` function into the variable `cnt`.
+- `FROM student`: This specifies the table from which we're counting the rows. In this case, it's the `student` table.
+
+So, when you execute this statement, MySQL counts the number of rows in the `student` table and stores the result in the variable `cnt`. This count is then used in the `WHILE` loop to determine the number of iterations needed to process each student's data.

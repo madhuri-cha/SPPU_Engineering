@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Air Flight Booking Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f8fb;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #6fb6d2, #2a5298);
+  color: white;
+  position: fixed;
+  height: 100vh;
+  padding-top: 1rem;
+  }
+
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #0c0c0c;
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #498fd5;
+      color: white;
+    }
+
+    .sidebar i {
+      margin-right: 0.8rem;
+    }
+
+    /* Main area */
+    .main-content {
+      margin-left: 220px;
+      width: calc(100% - 220px);
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      color: #1e2a38;
+      font-weight: bold;
+    }
+
+    .navbar .nav-links a {
+      margin: 0 1rem;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .navbar .search input {
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+    }
+
+    .navbar .icons {
+      display: flex;
+      gap: 1rem;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    /* Dashboard Cards */
+    .dashboard {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: #1e2a38;
+    }
+
+    .card p {
+      color: #555;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+      background-color: #fff;
+      border-top: 1px solid #eee;
+    }
+
+    @media screen and (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+      }
+      .navbar .nav-links {
+        display: none;
+      }
+      .navbar .search input {
+        width: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>AirPanel</h2>
+    <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <a href="#"><i class="fas fa-plane-departure"></i> Book Flights</a>
+    <a href="#"><i class="fas fa-calendar-check"></i> Bookings</a>
+    <a href="#"><i class="fas fa-users"></i> Passengers</a>
+    <a href="#"><i class="fas fa-life-ring"></i> Support</a>
+    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+  </div>
+
+  <!-- Main -->
+  <div class="main-content">
+
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">FlyHigh</div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Flights</a>
+        <a href="#">Deals</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="search">
+        <input type="text" placeholder="Search flights...">
+      </div>
+      <div class="icons">
+        <i class="fas fa-bell"></i>
+        <i class="fas fa-user-circle"></i>
+      </div>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard">
+      <div class="card">
+        <h3><i class="fas fa-ticket-alt" style="color: #2980b9;"></i> Total Bookings</h3>
+        <p>12,450 tickets sold</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-plane" style="color: #27ae60;"></i> Flights Today</h3>
+        <p>85 active flights</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-users" style="color: #e67e22;"></i> Passengers</h3>
+        <p>9,870 onboard</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-dollar-sign" style="color: #8e44ad;"></i> Revenue</h3>
+        <p>$340,000 this month</p>
+      </div>
+      <div class="card" style="grid-column: span 2;">
+        <h3><i class="fas fa-clock"></i> Upcoming Flights</h3>
+        <p>• Flight AI203 to Delhi - 3:30 PM</p>
+        <p>• Flight EK123 to Dubai - 5:00 PM</p>
+        <p>• Flight BA101 to London - 7:45 PM</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      &copy; 2025 FlyHigh Airlines. All rights reserved.
+    </div>
+
+  </div>
+
+</body>
+</html>

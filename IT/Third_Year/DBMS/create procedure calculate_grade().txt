@@ -1,0 +1,39 @@
+   create procedure calculate_grade()
+   begin
+   declare s1,s2,s3,tot int(3);
+   declare id int(10);
+   declare per float(5,2);
+   declare sname varchar(10);
+   declare i, cnt int(3);
+   DECLARE stu_cur CURSOR FOR select sno, name ,         
+   sub1,sub2,sub3 from student;
+   set i = 0;
+   select count(*)  into cnt from student;
+   OPEN stu_cur;
+   REPEAT 
+   FETCH stu_cur INTO id,sname,s1,s2,s3;
+   SET tot = (s1+s2+s3);
+   SET per =( tot / 3) ;
+   IF per >= 60 THEN 
+   insert into student_first values (id,sname,s1,s2,s3,tot,per);
+   ELSEIF per < 60 and per >= 50 THEN      
+   insert into student_pass values(id,sname,s1,s2,s3,tot,per);
+   ELSE
+   insert into student_fail values(id,sname,s1,s2,s3,tot,per);
+   END IF;
+   UPDATE student set total = tot, percentage = per                
+   WHERE sno = id;
+   SET i =i+1;
+   UNTIL i >= cnt  END REPEAT;
+   CLOSE stu_cur;
+   end //
+create table student_fail
+(
+sno int(10),
+name varchar(10),
+sub1 int(3),
+sub2 int(3),
+sub3 int(3),
+total int(3),
+percentage float(5,2)
+);

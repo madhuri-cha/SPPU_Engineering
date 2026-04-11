@@ -1,0 +1,334 @@
+Microsoft Windows [Version 10.0.22621.3296]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\madhu>mysql --version
+mysql  Ver 8.0.36 for Win64 on x86_64 (MySQL Community Server - GPL)
+
+C:\Users\madhu>mysql -u root -p
+Enter password: ***********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.36 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| information_schema |
+| madhutb            |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.01 sec)
+mysql> create database pvg;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use pvg;
+Database changed
+mysql> create table student
+    -> (
+    -> sno int(10),
+    -> name varchar(10),
+    -> sub1 int(10),
+    -> sub2 int(10),
+    -> sub3 int(10),
+    -> total int(10),
+    ->  percentage float(5,2)
+    -> );
+Query OK, 0 rows affected, 6 warnings (0.03 sec)
+
+mysql> alter table student
+    -> add grade varchar(10) not null;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| sno        | int         | YES  |     | NULL    |       |
+| name       | varchar(10) | YES  |     | NULL    |       |
+| sub1       | int         | YES  |     | NULL    |       |
+| sub2       | int         | YES  |     | NULL    |       |
+| sub3       | int         | YES  |     | NULL    |       |
+| total      | int         | YES  |     | NULL    |       |
+| percentage | float(5,2)  | YES  |     | NULL    |       |
+| grade      | varchar(10) | NO   |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> show table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> show tables;
++---------------+
+| Tables_in_pvg |
++---------------+
+| student       |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> insert into student values
+    -> (1,'dev',66,78,66,null,null,'a');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into student values
+    -> (2,'ajit',86,72,66,null,null,'b');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student values
+    -> (3,'diya',86,88,90,null,null,'a'),
+    -> (4,'jit',86,72,66,null,null,'b');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into student values
+    -> (5,'riya',82,81,90,null,null,'b'),
+    -> (6,'rina',52,61,50,null,null,'c'),
+    -> (7,'rina',72,61,70,null,null,'c'),
+    -> (8,'jay',93,81,90,null,null,'a'),
+    -> (9,'ajay',93,81,90,null,null,'a');
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------+------+------+------+------+-------+------------+-------+
+| sno  | name | sub1 | sub2 | sub3 | total | percentage | grade |
++------+------+------+------+------+-------+------------+-------+
+|    1 | dev  |   66 |   78 |   66 |  NULL |       NULL | a     |
+|    2 | ajit |   86 |   72 |   66 |  NULL |       NULL | b     |
+|    3 | diya |   86 |   88 |   90 |  NULL |       NULL | a     |
+|    4 | jit  |   86 |   72 |   66 |  NULL |       NULL | b     |
+|    5 | riya |   82 |   81 |   90 |  NULL |       NULL | b     |
+|    6 | rina |   52 |   61 |   50 |  NULL |       NULL | c     |
+|    7 | rina |   72 |   61 |   70 |  NULL |       NULL | c     |
+|    8 | jay  |   93 |   81 |   90 |  NULL |       NULL | a     |
+|    9 | ajay |   93 |   81 |   90 |  NULL |       NULL | a     |
++------+------+------+------+------+-------+------------+-------+
+9 rows in set (0.00 sec)
+
+mysql> insert into student values
+    -> (4,'mansi',80,72,86,null,null,'b');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> \help
+
+For information about MySQL products and services, visit:
+   http://www.mysql.com/
+For developer information, including the MySQL Reference Manual, visit:
+   http://dev.mysql.com/
+To buy MySQL Enterprise support, training, or other products, visit:
+   https://shop.mysql.com/
+
+List of all MySQL commands:
+Note that all text commands must be first on line and end with ';'
+?         (\?) Synonym for `help'.
+clear     (\c) Clear the current input statement.
+connect   (\r) Reconnect to the server. Optional arguments are db and host.
+delimiter (\d) Set statement delimiter.
+ego       (\G) Send command to mysql server, display result vertically.
+exit      (\q) Exit mysql. Same as quit.
+go        (\g) Send command to mysql server.
+help      (\h) Display this help.
+notee     (\t) Don't write into outfile.
+print     (\p) Print current command.
+prompt    (\R) Change your mysql prompt.
+quit      (\q) Quit mysql.
+rehash    (\#) Rebuild completion hash.
+source    (\.) Execute an SQL script file. Takes a file name as an argument.
+status    (\s) Get status information from the server.
+system    (\!) Execute a system shell command.
+tee       (\T) Set outfile [to_outfile]. Append everything into given outfile.
+use       (\u) Use another database. Takes database name as argument.
+charset   (\C) Switch to another charset. Might be needed for processing binlog with multi-byte charsets.
+warnings  (\W) Show warnings after every statement.
+nowarning (\w) Don't show warnings after every statement.
+resetconnection(\x) Clean session context.
+query_attributes Sets string parameters (name1 value1 name2 value2 ...) for the next query to pick up.
+ssl_session_data_print Serializes the current SSL session data to stdout or file
+
+For server side help, type 'help contents'
+
+mysql> \d
+ERROR:
+DELIMITER must be followed by a 'delimiter' character or string
+mysql> DELIMITER //
+mysql> create procedure clapercentage()
+    -> begin
+    -> declare s1,s2,s3,tot int(3);
+    -> declare per float(5,2);
+    -> declare grade_st varchar(20);
+    -> declare i,cnt,id int(10);
+    -> SET i = 0;
+    -> select count(*) into cnt from student;
+    -> while i < cnt
+    -> do
+    -> select sno,sub1,sub2,sub3 into id,s1,s2,s3 from student limit i,1;
+    -> set tot = (s1+s2+s3);
+    -> set per = tot/3;
+    -> if per > 40 then
+    -> set grade_st = 'PASS';
+    -> else
+    -> set grade_st = 'FAIL';
+    -> end if;
+    -> select tot,per,grade_st;
+    -> update student set total= tot,percentage=per,grade=grade_st where sno = id;
+    -> set i =i+1;
+    -> end while;
+    -> end//
+Query OK, 0 rows affected, 3 warnings (0.03 sec)
+
+mysql> call clapercentage() //
++------+-------+----------+
+| tot  | per   | grade_st |
++------+-------+----------+
+|  210 | 70.00 | PASS     |
++------+-------+----------+
+1 row in set (0.01 sec)
+
++------+-------+----------+
+| tot  | per   | grade_st |
++------+-------+----------+
+|  224 | 74.67 | PASS     |
++------+-------+----------+
+1 row in set (0.01 sec)
+
++------+-------+----------+
+| tot  | per   | grade_st |
++------+-------+----------+
+|  264 | 88.00 | PASS     |
++------+-------+----------+
+1 row in set (0.01 sec)
+
++------+-------+----------+
+| tot  | per   | grade_st |
++------+-------+----------+
+|  224 | 74.67 | PASS     |
++------+-------+----------+
+1 row in set (0.02 sec)
+
++------+-------+----------+
+| tot  | per   | grade_st |
++------+-------+----------+
+|  253 | 84.33 | PASS     |
++------+-------+----------+
+1 row in set (0.02 sec)
+
++------+-------+----------+
+| tot  | per   | grade_st |
++------+-------+----------+
+|  163 | 54.33 | PASS     |
++------+-------+----------+
+1 row in set (0.02 sec)
+
++------+-------+----------+
+| tot  | per   | grade_st |
++------+-------+----------+
+|  203 | 67.67 | PASS     |
++------+-------+----------+
+1 row in set (0.03 sec)
+
++------+-------+----------+
+| tot  | per   | grade_st |
++------+-------+----------+
+|  264 | 88.00 | PASS     |
++------+-------+----------+
+1 row in set (0.03 sec)
+
++------+-------+----------+
+| tot  | per   | grade_st |
++------+-------+----------+
+|  264 | 88.00 | PASS     |
++------+-------+----------+
+1 row in set (0.04 sec)
+
++------+-------+----------+
+| tot  | per   | grade_st |
++------+-------+----------+
+|  238 | 79.33 | PASS     |
++------+-------+----------+
+1 row in set (0.05 sec)
+
+Query OK, 2 rows affected (0.06 sec)
+
+mysql> select * from student//
++------+-------+------+------+------+-------+------------+-------+
+| sno  | name  | sub1 | sub2 | sub3 | total | percentage | grade |
++------+-------+------+------+------+-------+------------+-------+
+|    1 | dev   |   66 |   78 |   66 |   210 |      70.00 | PASS  |
+|    2 | ajit  |   86 |   72 |   66 |   224 |      74.67 | PASS  |
+|    3 | diya  |   86 |   88 |   90 |   264 |      88.00 | PASS  |
+|    4 | jit   |   86 |   72 |   66 |   238 |      79.33 | PASS  |
+|    5 | riya  |   82 |   81 |   90 |   253 |      84.33 | PASS  |
+|    6 | rina  |   52 |   61 |   50 |   163 |      54.33 | PASS  |
+|    7 | rina  |   72 |   61 |   70 |   203 |      67.67 | PASS  |
+|    8 | jay   |   93 |   81 |   90 |   264 |      88.00 | PASS  |
+|    9 | ajay  |   93 |   81 |   90 |   264 |      88.00 | PASS  |
+|    4 | mansi |   80 |   72 |   86 |   238 |      79.33 | PASS  |
++------+-------+------+------+------+-------+------------+-------+
+10 rows in set (0.00 sec)
+
+mysql> select * from student;
+    -> //
++------+-------+------+------+------+-------+------------+-------+
+| sno  | name  | sub1 | sub2 | sub3 | total | percentage | grade |
++------+-------+------+------+------+-------+------------+-------+
+|    1 | dev   |   66 |   78 |   66 |   210 |      70.00 | PASS  |
+|    2 | ajit  |   86 |   72 |   66 |   224 |      74.67 | PASS  |
+|    3 | diya  |   86 |   88 |   90 |   264 |      88.00 | PASS  |
+|    4 | jit   |   86 |   72 |   66 |   238 |      79.33 | PASS  |
+|    5 | riya  |   82 |   81 |   90 |   253 |      84.33 | PASS  |
+|    6 | rina  |   52 |   61 |   50 |   163 |      54.33 | PASS  |
+|    7 | rina  |   72 |   61 |   70 |   203 |      67.67 | PASS  |
+|    8 | jay   |   93 |   81 |   90 |   264 |      88.00 | PASS  |
+|    9 | ajay  |   93 |   81 |   90 |   264 |      88.00 | PASS  |
+|    4 | mansi |   80 |   72 |   86 |   238 |      79.33 | PASS  |
++------+-------+------+------+------+-------+------------+-------+
+10 rows in set (0.00 sec)
+
+mysql> ^C
+mysql> select * from student;
+    -> //
++------+-------+------+------+------+-------+------------+-------+
+| sno  | name  | sub1 | sub2 | sub3 | total | percentage | grade |
++------+-------+------+------+------+-------+------------+-------+
+|    1 | dev   |   66 |   78 |   66 |   210 |      70.00 | PASS  |
+|    2 | ajit  |   86 |   72 |   66 |   224 |      74.67 | PASS  |
+|    3 | diya  |   86 |   88 |   90 |   264 |      88.00 | PASS  |
+|    4 | jit   |   86 |   72 |   66 |   238 |      79.33 | PASS  |
+|    5 | riya  |   82 |   81 |   90 |   253 |      84.33 | PASS  |
+|    6 | rina  |   52 |   61 |   50 |   163 |      54.33 | PASS  |
+|    7 | rina  |   72 |   61 |   70 |   203 |      67.67 | PASS  |
+|    8 | jay   |   93 |   81 |   90 |   264 |      88.00 | PASS  |
+|    9 | ajay  |   93 |   81 |   90 |   264 |      88.00 | PASS  |
+|    4 | mansi |   80 |   72 |   86 |   238 |      79.33 | PASS  |
++------+-------+------+------+------+-------+------------+-------+
+10 rows in set (0.00 sec)
+
+mysql> select * from student;
+    -> //
++------+-------+------+------+------+-------+------------+-------+
+| sno  | name  | sub1 | sub2 | sub3 | total | percentage | grade |
++------+-------+------+------+------+-------+------------+-------+
+|    1 | dev   |   66 |   78 |   66 |   210 |      70.00 | PASS  |
+|    2 | ajit  |   86 |   72 |   66 |   224 |      74.67 | PASS  |
+|    3 | diya  |   86 |   88 |   90 |   264 |      88.00 | PASS  |
+|    4 | jit   |   86 |   72 |   66 |   238 |      79.33 | PASS  |
+|    5 | riya  |   82 |   81 |   90 |   253 |      84.33 | PASS  |
+|    6 | rina  |   52 |   61 |   50 |   163 |      54.33 | PASS  |
+|    7 | rina  |   72 |   61 |   70 |   203 |      67.67 | PASS  |
+|    8 | jay   |   93 |   81 |   90 |   264 |      88.00 | PASS  |
+|    9 | ajay  |   93 |   81 |   90 |   264 |      88.00 | PASS  |
+|    4 | mansi |   80 |   72 |   86 |   238 |      79.33 | PASS  |
++------+-------+------+------+------+-------+------------+-------+
+10 rows in set (0.00 sec)
+

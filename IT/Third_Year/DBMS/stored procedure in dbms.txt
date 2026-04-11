@@ -1,0 +1,8 @@
+stored procedure :
+Stored procedures are a set of SQL statements that are stored in the database and can be executed on demand. 
+
+Triggers :
+Triggers are special types of stored procedures that are automatically executed or fired when certain events occur in the database. These events can include INSERT, UPDATE, DELETE operations on tables.
+
+Cursor :
+Cursors are database objects that enable traversal over the records in a result set. They can be used within stored procedures or in SQL scripts. Cursors are useful in scenarios where you need to process individual rows of a result set one at a time.

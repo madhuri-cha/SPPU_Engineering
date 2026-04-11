@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>College Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background-color: #1e3a8a;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: #3749a3;
+    }
+
+    /* Top Navbar */
+    .navbar {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .navbar .left {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .navbar .left h1 {
+      color: #2563eb;
+      margin-right: 2rem;
+    }
+
+    .navbar .left a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar .left a:hover {
+      color: #2563eb;
+    }
+
+    .navbar .center input[type="text"] {
+      padding: 0.4rem 1rem;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+    }
+
+    .navbar .right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    /* Main content */
+    .main {
+      margin-left: 220px;
+      padding-top: 80px;
+    }
+
+    .dashboard {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: #ffffff;
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .card p, .card li {
+      color: #444;
+      font-size: 0.95rem;
+    }
+
+    .announcements {
+      grid-column: span 2;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #888;
+      background-color: #ffffff;
+      border-top: 1px solid #ddd;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+
+      .main {
+        margin-left: 0;
+      }
+
+      .navbar .center input[type="text"] {
+        width: 150px;
+      }
+
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .announcements {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <div class="navbar">
+    <div class="left">
+      <h1>College Portal</h1>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="center">
+      <input type="text" placeholder="Search...">
+    </div>
+    <div class="right">
+      <i class="fa fa-bell" style="color: #fbbf24;"></i>
+      <i class="fa fa-user" style="color: #6b21a8;"></i>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <a href="#"><i class="fa fa-home"></i> Dashboard</a>
+    <a href="#"><i class="fa fa-book"></i> Courses</a>
+    <a href="#"><i class="fa fa-graduation-cap"></i> Grades</a>
+    <a href="#"><i class="fa fa-user"></i> Profile</a>
+    <a href="#"><i class="fa fa-cog"></i> Settings</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <div class="dashboard">
+      <div class="card">
+        <h2><i class="fa fa-book" style="color: #2563eb;"></i> My Courses</h2>
+        <p>View all your enrolled subjects and class schedules.</p>
+      </div>
+
+      <div class="card">
+        <h2><i class="fa fa-graduation-cap" style="color: #10b981;"></i> Grades</h2>
+        <p>Track your academic performance across semesters.</p>
+      </div>
+
+      <div class="card">
+        <h2><i class="fa fa-user" style="color: #9333ea;"></i> Profile</h2>
+        <p>Manage your personal and academic information.</p>
+      </div>
+
+      <div class="card announcements">
+        <h2><i class="fa fa-bullhorn"></i> Announcements</h2>
+        <ul>
+          <li>Midterm results out on May 10.</li>
+          <li>Library open till 10 PM during exams.</li>
+          <li>AI/ML Workshop on May 15.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer">
+      &copy; 2025 College Portal. All rights reserved.
+    </div>
+  </div>
+
+</body>
+</html>

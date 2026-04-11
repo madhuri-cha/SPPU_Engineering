@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawfect Care - Premium Pet Services</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Chewy&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6f42c1;
+            --secondary-color: #20c997;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --accent-color: #fd7e14;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fefefe;
+            color: var(--dark-color);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            margin-bottom: 50px;
+        }
+        
+        .portal-title {
+            font-family: 'Chewy', cursive;
+            font-size: 4rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .portal-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .navbar {
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Chewy', cursive;
+            font-size: 1.8rem;
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px 25px;
+            margin-bottom: 30px;
+            height: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: none;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .pet-icon {
+            color: var(--accent-color);
+        }
+        
+        .btn-paw {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .btn-paw:hover {
+            background-color: #5a32a8;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(111, 66, 193, 0.3);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 70px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-3px);
+            color: var(--secondary-color);
+        }
+        
+        #contactModal .modal-header {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .pet-feature {
+            background-color: #f8f5ff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .portal-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-section {
+                padding: 80px 0;
+            }
+            
+            .service-card {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-paw me-2"></i>Pawfect Care
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <button class="btn btn-paw" data-bs-toggle="modal" data-bs-target="#contactModal">
+                            Contact Us
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center" id="home">
+        <div class="container">
+            <h1 class="portal-title">Pawfect Care</h1>
+            <p class="portal-subtitle">Premium Pet Care Services for Your Furry Friends</p>
+            <a href="#services" class="btn btn-paw btn-lg mt-3">
+                <i class="fas fa-bone me-2"></i>Our Services
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Services Section -->
+        <section id="services" class="my-5 py-4">
+            <h2 class="text-center mb-5">Our Pet Care Services</h2>
+            
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon pet-icon">
+                            <i class="fas fa-dog"></i>
+                        </div>
+                        <h3>Dog Walking</h3>
+                        <p>Daily walks tailored to your dog's energy level and needs, with GPS tracking available.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Pet Sitting</h3>
+                        <p>In-home care while you're away, including feeding, playtime, and medication administration.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon pet-icon">
+                            <i class="fas fa-cat"></i>
+                        </div>
+                        <h3>Cat Care</h3>
+                        <p>Specialized care for feline friends including litter box maintenance and play sessions.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-syringe"></i>
+                        </div>
+                        <h3>Vet Visits</h3>
+                        <p>Transportation to veterinary appointments with waiting service if needed.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                        <h3>Grooming</h3>
+                        <p>Professional grooming services including baths, haircuts, and nail trimming.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon pet-icon">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <h3>Pet Training</h3>
+                        <p>Obedience training and behavior modification with certified trainers.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                        <h3>Pet Taxi</h3>
+                        <p>Safe transportation for your pet to any destination in our climate-controlled vehicles.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Pet Nutrition</h3>
+                        <p>Custom meal plans and dietary advice tailored to your pet's specific needs.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <button class="btn btn-paw btn-lg" data-bs-toggle="modal" data-bs-target="#contactModal">
+                    <i class="fas fa-phone-alt me-2"></i>Book a Service
+                </button>
+            </div>
+        </section>
+        
+        
+        
+        
+               
+
+    <!-- Contact Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Contact Pawfect Care</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="service" class="form-label">Service Interested In</label>
+                            <select class="form-select" id="service">
+                                <option selected>Select a service</option>
+                                <option>Dog Walking</option>
+                                <option>Pet Sitting</option>
+                                <option>Cat Care</option>
+                                <option>Vet Visits</option>
+                                <option>Grooming</option>
+                                <option>Pet Training</option>
+                                <option>Pet Taxi</option>
+                                <option>Pet Nutrition</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-paw w-100">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-paw me-2"></i>Pawfect Care</h5>
+                    <p>Providing loving care for your pets since 2015. Your pets are family, and we treat them that way.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="#home" class="d-block mb-2">Home</a>
+                        <a href="#services" class="d-block mb-2">Services</a>
+                        <a href="#about" class="d-block mb-2">About Us</a>
+                        <a href="#testimonials" class="d-block mb-2">Testimonials</a>
+                        <a href="#" class="d-block mb-2" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> 123 Pet Care Ave, Cityville</p>
+                    <p><i class="fas fa-phone-alt me-2"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-envelope me-2"></i> hello@pawfectcare.example</p>
+                    <p><i class="fas fa-clock me-2"></i> Mon-Sun: 7am - 9pm</p>
+                </div>
+            </div>
+            <hr class="bg-light my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Pawfect Care. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission handling
+        document.querySelector('#contactModal form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you shortly.');
+            var modal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
+            modal.hide();
+            this.reset();
+        });
+    </script>
+</body>
+</html>

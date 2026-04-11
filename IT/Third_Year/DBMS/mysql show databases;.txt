@@ -1,0 +1,471 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| information_schema |
+| madhutb            |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.04 sec)
+
+mysql> use college;
+Database changed
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| information_schema |
+| madhutb            |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql> ogs
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ogs' at line 1
+mysql> su
+    -> o;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'su
+o' at line 1
+mysql> create table student;
+ERROR 4028 (HY000): A table must have at least one visible column.
+mysql> create table student
+    -> (
+    -> id int primary key not null
+    -> ,
+    -> name varchar(50) ,
+    -> cgpa float ,
+    -> city varchar(80)
+    -> );
+ERROR 1050 (42S01): Table 'student' already exists
+mysql> create table club
+    -> (
+    -> city varchar(80)
+    -> ,
+    -> name varchar(50) ,
+    -> cgpa float
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into club
+    -> (city , name , cgpa)
+    -> values
+    -> (pune,aaisha,7.9)
+    -> ('pune;
+    '> ;
+    '> '
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '('pune;
+;
+'' at line 5
+mysql> insert into club
+    -> (city , name , cgpa)
+    -> values
+    -> ('pune','aaisha',9.0)
+    -> ('pune ,'sangali',8.8)
+    '> ('dehli','dev',8.8)
+    '> ('dehli','yash',9.0)
+    '> ('dhule','raj',7.9)
+    '> ';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '('pune ,'sangali',8.8)
+('dehli','dev',8.8)
+('dehli','yash',9.0)
+('dhule','raj',7' at line 5
+mysql> insert into club
+    -> (city , name , cgpa)
+    -> values
+    -> ('pune','aaisha',9.0)
+    -> ('dehli','dev',8.8)
+    -> ('dehli','yash',9.0)
+    -> ('dhule','raj',7.9)
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '('dehli','dev',8.8)
+('dehli','yash',9.0)
+('dhule','raj',7.9)' at line 5
+mysql> insert into club
+    -> (city , name , cgpa)
+    -> values
+    -> ('dhule','raj',7.9);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into club
+    -> ('dehli','yash',9.0)
+    -> ('dehli','dev',8.8)
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''dehli','yash',9.0)
+('dehli','dev',8.8)' at line 2
+mysql> insert into club
+    -> ('dehli','yash',9.0);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''dehli','yash',9.0)' at line 2
+mysql> insert into club
+    -> values
+    -> ('pune','yash',7.70)
+    -> ('dehli','yash',9.0)
+    -> ('mumbai','dev',9.9);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '('dehli','yash',9.0)
+('mumbai','dev',9.9)' at line 4
+mysql> insert into club
+    -> values
+    -> ('pune','yash',7.70);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into club
+    -> values
+    -> ('mumbai','dev',9.9);;
+Query OK, 1 row affected (0.00 sec)
+
+ERROR:
+No query specified
+
+mysql> show tables;
++-------------------+
+| Tables_in_college |
++-------------------+
+| club              |
+| customer          |
+| dept              |
+| dream_ci          |
+| exam              |
+| student           |
+| student1          |
+| student2          |
+| temp              |
++-------------------+
+9 rows in set (0.01 sec)
+
+mysql> select * from customer;
+Empty set (0.02 sec)
+
+mysql> select * from temp;
+Empty set (0.01 sec)
+
+mysql> select * from dept;
++-----+---------+
+| id  | name    |
++-----+---------+
+| 101 | english |
+| 103 | science |
+| 104 | math    |
++-----+---------+
+3 rows in set (0.00 sec)
+
+mysql> select * from club;
++--------+------+------+
+| city   | name | cgpa |
++--------+------+------+
+| dhule  | raj  |  7.9 |
+| pune   | yash |  7.7 |
+| mumbai | dev  |  9.9 |
++--------+------+------+
+3 rows in set (0.00 sec)
+
+mysql> insert into club
+    -> values
+    -> ("pune","hem",9.0);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> create table party
+    -> (
+    -> id int ,
+    -> name varchar(89),
+    -> city varchar(80)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into party
+    -> values
+    -> (id ,name,city)
+    -> (101,"raj","pune")
+    -> (102,"dev',"dhule")
+    "> (103,"ram","sangli")
+    "> ;
+    "> '"
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(101,"raj","pune")
+(102,"dev',"dhule")
+(103,"ram","sangli")
+;
+'"' at line 4
+mysql> insert into party
+    -> values
+    -> (id ,name,city)
+    -> (101,"raj","pune")
+    -> (103,"ram","sangli")
+    -> (102,"dev","dhule")
+    -> (104,"hem","pune");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(101,"raj","pune")
+(103,"ram","sangli")
+(102,"dev","dhule")
+(104,"hem","pune")' at line 4
+mysql> insert into party
+    -> values
+    -> (id ,name,city)
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into party
+    -> (id ,name,city)
+    -> values
+    -> (101,"raj","pune")
+    -> (102,"dev',"dhule")
+    "> "
+    -> (104,"hem","pune");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(102,"dev',"dhule")
+"
+(104,"hem","pune")' at line 5
+mysql> insert into party
+    -> (id ,name,city)
+    -> values
+    -> (101,"raj","pune")
+    -> (103,"ram","sangli")
+    -> (102,"dev","dhule")
+    -> (104,"hem","ranchi");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(103,"ram","sangli")
+(102,"dev","dhule")
+(104,"hem","ranchi")' at line 5
+mysql> insert into party
+    -> (id ,name,city)
+    -> values
+    -> (101,"raj","pune");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into party
+    -> values
+    -> (104,"hem","ranchi");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into party
+    -> values
+    -> (103,"ram","sangli")
+    -> (102,"dev","dhule");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(102,"dev","dhule")' at line 4
+mysql> insert into party
+    -> values
+    -> (104,"hem","ranchi");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into party
+    -> values
+    -> (102,"dev","dhule");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from party;
++------+------+--------+
+| id   | name | city   |
++------+------+--------+
+| NULL | NULL | NULL   |
+|  101 | raj  | pune   |
+|  104 | hem  | ranchi |
+|  104 | hem  | ranchi |
+|  102 | dev  | dhule  |
++------+------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select *
+    -> from club
+    -> inner join party
+    -> on club.city = party.city;
++-------+------+------+------+------+-------+
+| city  | name | cgpa | id   | name | city  |
++-------+------+------+------+------+-------+
+| pune  | hem  |    9 |  101 | raj  | pune  |
+| pune  | yash |  7.7 |  101 | raj  | pune  |
+| dhule | raj  |  7.9 |  102 | dev  | dhule |
++-------+------+------+------+------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select *
+    -> from club
+    -> left join party
+    -> on club.name = party.name;
++--------+------+------+------+------+--------+
+| city   | name | cgpa | id   | name | city   |
++--------+------+------+------+------+--------+
+| dhule  | raj  |  7.9 |  101 | raj  | pune   |
+| pune   | yash |  7.7 | NULL | NULL | NULL   |
+| mumbai | dev  |  9.9 |  102 | dev  | dhule  |
+| pune   | hem  |    9 |  104 | hem  | ranchi |
+| pune   | hem  |    9 |  104 | hem  | ranchi |
++--------+------+------+------+------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from club;
++--------+------+------+
+| city   | name | cgpa |
++--------+------+------+
+| dhule  | raj  |  7.9 |
+| pune   | yash |  7.7 |
+| mumbai | dev  |  9.9 |
+| pune   | hem  |    9 |
++--------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from party;
++------+------+--------+
+| id   | name | city   |
++------+------+--------+
+| NULL | NULL | NULL   |
+|  101 | raj  | pune   |
+|  104 | hem  | ranchi |
+|  104 | hem  | ranchi |
+|  102 | dev  | dhule  |
++------+------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select *
+    -> from club
+    -> right join party
+    -> on club.name = party.name;
++--------+------+------+------+------+--------+
+| city   | name | cgpa | id   | name | city   |
++--------+------+------+------+------+--------+
+| NULL   | NULL | NULL | NULL | NULL | NULL   |
+| dhule  | raj  |  7.9 |  101 | raj  | pune   |
+| pune   | hem  |    9 |  104 | hem  | ranchi |
+| pune   | hem  |    9 |  104 | hem  | ranchi |
+| mumbai | dev  |  9.9 |  102 | dev  | dhule  |
++--------+------+------+------+------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select *
+    -> from club
+    -> full join party
+    -> on club.name = party.name;
+ERROR 1054 (42S22): Unknown column 'club.name' in 'on clause'
+mysql> select *
+    -> from club
+    -> full join party
+    -> full join party;
+ERROR 1066 (42000): Not unique table/alias: 'full'
+mysql> select *
+    -> from club
+    -> as c
+    -> left join party p
+    -> on club.name = party.name
+    -> union
+    -> select * from club
+    -> ;
+ERROR 1054 (42S22): Unknown column 'club.name' in 'on clause'
+mysql> select * from club as c
+    -> left join party as p
+    -> on c.name = p.name
+    -> union
+    -> select * from club as c
+    -> right join party as p
+    -> on c.name = p.name;
++--------+------+------+------+------+--------+
+| city   | name | cgpa | id   | name | city   |
++--------+------+------+------+------+--------+
+| dhule  | raj  |  7.9 |  101 | raj  | pune   |
+| pune   | yash |  7.7 | NULL | NULL | NULL   |
+| mumbai | dev  |  9.9 |  102 | dev  | dhule  |
+| pune   | hem  |    9 |  104 | hem  | ranchi |
+| NULL   | NULL | NULL | NULL | NULL | NULL   |
++--------+------+------+------+------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from club as c
+    -> left join party as p
+    -> on c.name = p.name
+    -> where p.name Is null;
++------+------+------+------+------+------+
+| city | name | cgpa | id   | name | city |
++------+------+------+------+------+------+
+| pune | yash |  7.7 | NULL | NULL | NULL |
++------+------+------+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from club as c
+    -> left join party as p
+    -> on c.name = p.name;
++--------+------+------+------+------+--------+
+| city   | name | cgpa | id   | name | city   |
++--------+------+------+------+------+--------+
+| dhule  | raj  |  7.9 |  101 | raj  | pune   |
+| pune   | yash |  7.7 | NULL | NULL | NULL   |
+| mumbai | dev  |  9.9 |  102 | dev  | dhule  |
+| pune   | hem  |    9 |  104 | hem  | ranchi |
+| pune   | hem  |    9 |  104 | hem  | ranchi |
++--------+------+------+------+------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from club as c
+    -> left join party as p
+    -> on c.name = p.name;
++--------+------+------+------+------+--------+
+| city   | name | cgpa | id   | name | city   |
++--------+------+------+------+------+--------+
+| dhule  | raj  |  7.9 |  101 | raj  | pune   |
+| pune   | yash |  7.7 | NULL | NULL | NULL   |
+| mumbai | dev  |  9.9 |  102 | dev  | dhule  |
+| pune   | hem  |    9 |  104 | hem  | ranchi |
+| pune   | hem  |    9 |  104 | hem  | ranchi |
++--------+------+------+------+------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from club as c
+    -> left join party as p
+    -> on c.name = p.name
+    -> where p.name is null
+    -> union
+    -> select * from club as c
+    -> right join party as p
+    -> on c.name = p.name
+    -> where c.name is null;
++------+------+------+------+------+------+
+| city | name | cgpa | id   | name | city |
++------+------+------+------+------+------+
+| pune | yash |  7.7 | NULL | NULL | NULL |
+| NULL | NULL | NULL | NULL | NULL | NULL |
++------+------+------+------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> //self join = it is a regular join but table is joined with itself
+    -> //
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '//self join = it is a regular join but table is joined with itself
+//' at line 1
+mysql> select *
+    -> from club
+    -> join party
+    -> on club.;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 4
+mysql> select *
+    -> from club
+    -> join club
+    -> on club.city = city.cgpa;
+ERROR 1066 (42000): Not unique table/alias: 'club'
+mysql> select *
+    -> from club
+    -> join club
+    -> on club.city = club.cgpa;
+ERROR 1066 (42000): Not unique table/alias: 'club'
+mysql> select *
+    -> from club
+    -> join club
+    -> on club.city = club.name;
+ERROR 1066 (42000): Not unique table/alias: 'club'
+mysql> select *
+    -> from club as a
+    -> join club as b
+    -> on club.city = club.name;
+ERROR 1054 (42S22): Unknown column 'club.city' in 'on clause'
+mysql>
+mysql> select *
+    -> from club as a
+    -> from club as a
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from club as a' at line 3
+mysql> select *
+    -> from club as a
+    -> join club as b
+    -> on a.name = b.city;
+Empty set (0.00 sec)
+
+mysql>
