@@ -1,0 +1,72 @@
+import java.util.*;
+public class practice {
+
+	
+	
+	int real , img;
+	public
+	practice(int real , int img)
+	{
+		this.real = real;
+		this.img = img;
+	}
+	
+	void add()
+	{  
+		Scanner sc = new Scanner(System.in);
+		System.out.println(" Enter first element ");
+		practice a = new practice(sc.nextInt(), sc.nextInt());
+		System.out.println(" Enter second element ");
+		practice b = new practice( sc.nextInt(), sc.nextInt());
+		int n = a.real + b.real;
+		int m = a.img + b.img;
+		practice c = new practice( n , m);
+		System.out.println(+n+ " + " +m+ "i" );
+	}
+	void sub()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println(" Enter first element ");
+		practice a = new practice(sc.nextInt(), sc.nextInt());
+		System.out.println(" Enter second element ");
+		practice b = new practice( sc.nextInt(), sc.nextInt());
+		int n = a.real - b.real;
+		int m = a.img - b.img;
+		practice c = new practice( n , m);
+		System.out.println(+n+ " - " +m+ "i" );
+	}
+	void mul()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println(" Enter first element ");
+		practice a = new practice(sc.nextInt(), sc.nextInt());
+		System.out.println(" Enter second element ");
+		practice b = new practice( sc.nextInt(), sc.nextInt());
+		int n = ( a.real * b.real ) - ( a.img * b.img); //ac - bd +  ad + bc
+		int m = ( a.real * b.img ) + ( b.img * a.real);
+		practice c = new practice( n , m );
+		System.out.println(+n+ " + i" +m);
+	}
+	void div()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println(" Enter first element ");
+		practice a = new practice(sc.nextInt(), sc.nextInt());
+		System.out.println(" Enter second element ");
+		practice b = new practice( sc.nextInt(), sc.nextInt());
+		int den = (b.real * b.real) + (b.img * b.img);// (ac + bd) + ( bc - ad )
+		int n = (a.real * b.real) + ( a.img * b.img ) / den ;
+		int m = ( b.real * a.img ) - (a.real * b.img) / den;
+		practice c = new practice( n , m);
+		System.out.println(+n+ " + i "+m);
+	}
+	public static void main(String args[])
+	{
+		practice p = new practice(0,0);
+		p.add();
+		p.sub();
+	    p.mul();
+		p.div();
+	}
+}
+

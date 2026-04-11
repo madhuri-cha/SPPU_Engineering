@@ -1,0 +1,6 @@
+
+public class PaymentStrategy {
+
+	public void pay(int amount);
+	
+}

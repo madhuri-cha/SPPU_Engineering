@@ -1,0 +1,41 @@
+import java.util.*;
+public class pr6 {
+	
+	public static void main(String args[]) 
+	{
+		
+		int Array[] = { 2, 4,5,7,8};
+		Scanner sc = new Scanner(System.in);
+		
+		try {
+			
+		
+			  
+		  try {
+			
+			  int index;
+			  System.out.println("Index ");
+			  index = sc.nextInt();
+			  System.out.println(" Index " +Array[index]+" "+index);
+				
+		    }
+			catch(ArrayIndexOutOfBoundException e)
+			{
+				  int index;
+				  System.out.println("Index ");
+				  index = sc.nextInt();
+				  System.out.println(" Index " +Array[index]+" "+index);
+				
+			}
+		
+		
+		
+		}	catch(Exception e)
+		{
+			
+		}
+		
+		
+	}
+
+}

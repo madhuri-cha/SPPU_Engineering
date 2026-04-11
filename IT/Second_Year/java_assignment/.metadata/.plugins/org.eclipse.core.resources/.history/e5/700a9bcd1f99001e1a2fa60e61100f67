@@ -1,0 +1,14 @@
+
+interface paymentmethod
+{
+   public void 	
+}
+public class Strategypattern {
+
+	public static void main(String agrs[])
+	{
+		int amt , choice = 0;
+		
+		
+	}
+}

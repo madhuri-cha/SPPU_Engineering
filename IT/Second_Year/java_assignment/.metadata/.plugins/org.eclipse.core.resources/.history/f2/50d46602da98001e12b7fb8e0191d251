@@ -1,0 +1,47 @@
+import java.util.*;
+public class pr6 {
+	
+	public static void main(String args[]) 
+	{
+		
+		int Array[] = { 2, 4,5,7,8};
+		Scanner sc = new Scanner(System.in);  
+		try {
+		  try {
+			
+			  int index;
+			  System.out.println("Index ");
+			  index = sc.nextInt();
+			  System.out.println(" Index " +Array[index]+" "+index);
+				
+		      }
+			catch(ArrayIndexOutOfBoundsException e)
+			{
+			     	 System.out.println("Invalid index. Please try again.");
+	                // Clear the scanner buffer after an incorrect input
+	                sc.nextLine();
+			}
+		  try
+		  {
+			  int n1=10;
+			  int n2 = 10;
+			  int div = n1 / n2;
+			  System.out.println("Result of division: " + div);
+		  }
+		  catch(ArithmeticException e)
+		  {
+			  System.out.println("n2 not zero ");
+
+		  }
+		  catch(NumberFormateException e)
+		  {
+			  System.out.println("n2 not zero ");
+		  }
+		   
+		}
+		catch(Exception e)
+		{
+			
+		}
+	}
+}

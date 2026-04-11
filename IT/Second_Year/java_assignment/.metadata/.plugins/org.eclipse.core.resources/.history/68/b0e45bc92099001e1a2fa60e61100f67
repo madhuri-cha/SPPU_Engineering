@@ -1,0 +1,40 @@
+import java.util.*;
+interface paymentmethod///////////////
+{
+   public void pay(int amount);	
+}
+class creditcard implements paymentmethod/////
+{
+	private String name;
+	private double cardno;
+	private String expdate;
+	Scanner sc = new Scanner(System.in);
+	
+	public creditcard()
+	{
+		super();
+		System.out.println("name ");
+		this.name = sc.next();
+		System.out.println(" card no ");
+		this.cardno = sc.nextInt();
+		System.out.println("expiry date ");
+		this.expdate = sc.next();
+		
+	}
+	public void pay(int amount)
+	{
+		System.out.println("Credit card through payment");
+		System.out.println(" Amount " +amount);
+		
+	}
+
+}
+public class Strategypattern {
+
+	public static void main(String agrs[])
+	{
+		int amt , choice = 0;
+		
+		
+	}
+}

@@ -1,0 +1,120 @@
+import java.util.*;
+public class assignment7
+         
+{    
+	static int c = 0;s
+	static void even(int num)
+	
+	{  
+		
+		if(num % 2==0)
+		{
+			System.out.println(num+"even");
+			c = c + 1;
+		}
+		else
+		{
+
+			System.out.println(num +"odd");
+		}
+	}
+	
+	static void prime(int num)
+	{
+	    int m =0 ,i , flag =0;
+	    m = num/2;
+	    for( i = 2 ; i<= m;i++)
+	    {
+	    	if(num %i == 0)
+	    	{
+	    		System.out.println(num+ "not prime");
+	    		flag = 1;
+	    		break;
+	    	}
+      }
+	       if(flag==0)
+	    	{
+	    		System.out.println(num+"prime");
+	    	    c = c+1;
+	    	}
+	    
+	}
+	static void polindrome(int num)
+	{
+		int sum =0 ;
+		int temp = num;
+		while(num > 0)
+		{
+			sum = sum * 10 + num  % 10;
+			num = num/10;
+		}
+		if(temp == sum)
+		{
+			System.out.println(temp+"polindrome");
+			c = c+1;
+		}
+		else {
+			System.out.println(temp +"not polindrome");
+		}
+	}
+	
+	public static void main(String args[]) {
+		 int choice ;
+		int i , n , element ;
+		Scanner sc = new Scanner(System.in);
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
+        System.out.println("Enter elements :");
+        n = sc.nextInt();
+        for(i=0 ; i < n ;i++)
+        {
+        	System.out.println("Element :");
+        	element = sc.nextInt();
+        	list.add(element);
+        }
+        do {
+        Iterator itr = list.iterator();
+        c = 0;
+        System.out.println("choice :");
+        choice = sc.nextInt();
+        
+       switch(choice)
+       {
+       case 1:
+       i = 0;
+        while(i<n)
+        { 
+          even(list.get(i));
+          i++;
+        }
+        System.out.println("Even : " +c);
+        System.out.println("odd : " +(list.size() - c));
+        break;
+        
+       case 2:
+    	   while(itr.hasNext())
+    	   {
+    	   prime((int) itr.next());
+    	   }
+    	   System.out.println("prime : " +c);
+           System.out.println("com : " +(list.size() - c));
+           break;
+           
+           
+       case 3 :
+    	   while(itr.hasNext())
+    			   {
+    		          polindrome((int)itr.next());
+    	           }
+    	   System.out.println("pol : " +c);
+           System.out.println("no pol : " +(list.size() - c));
+           break;
+    	   
+    	   
+    	   
+       }
+       
+        }while(choice !=3);
+	}
+        
+}

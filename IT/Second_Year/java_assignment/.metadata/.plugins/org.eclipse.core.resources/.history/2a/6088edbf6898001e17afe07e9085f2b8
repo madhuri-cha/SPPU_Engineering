@@ -1,0 +1,63 @@
+import java.util.*;
+public class practice {
+
+	
+	
+	int real , img;
+	public
+	practice(int real , int img)
+	{
+		this.real = real;
+		this.img = img;
+	}
+	
+	void add()
+	{  
+		Scanner sc = new Scanner(System.in);
+		System.out.println(" Enter first element ");
+		practice a = new practice(sc.nextInt(), sc.nextInt());
+		System.out.println(" Enter second element ");
+		practice b = new practice( sc.nextInt(), sc.nextInt());
+		int n = a.real + b.real;
+		int m = a.img + b.img;
+		practice c = new practice( n , m);
+		System.out.println(+n+ " + " +m+ "i" );
+	}
+	void sub()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println(" Enter first element ");
+		practice a = new practice(sc.nextInt(), sc.nextInt());
+		System.out.println(" Enter second element ");
+		practice b = new practice( sc.nextInt(), sc.nextInt());
+		int n = a.real - b.real;
+		int m = a.img - a.img;
+		practice c = new practice( n , m);
+		System.out.println(+n+ " - " +m+ "i" );
+	}
+	void mul()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println(" Enter first element ");
+		practice a = new practice(sc.nextInt(), sc.nextInt());
+		System.out.println(" Enter second element ");
+		practice b = new practice( sc.nextInt(), sc.nextInt());
+		int n = ( a.real * b.real ) - ( a.img - b.img); 
+		int m = ( a.real * b.img ) - ( b.img * b.real);
+		
+		System.out.println(+n+ "i"+m);
+	}
+	void div()
+	{
+		
+	}
+	public static void main(String args[])
+	{
+		practice p = new practice(0,0);
+		p.add();
+		p.sub();
+	    //p.mul();
+		//p.div();
+	}
+}
+

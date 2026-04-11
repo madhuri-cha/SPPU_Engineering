@@ -1,0 +1,84 @@
+import java.util.*;
+class Banks
+{
+	public 
+  	String name;
+  	double act_no;
+  	double balance;
+  	double  withamt = 0;
+  	double depamt , limit = 20000;
+  	public void create()
+  	{
+  		System.out.println("name");
+  		Scanner sc = new Scanner(System.in);
+        name = sc.next();
+        depamt = sc.nextDouble();
+      do
+      {
+        if( depamt < 100)
+        {
+            System.out.println("intial deposit am 100");
+        }
+        else{
+            System.out.println("ss");
+        }
+      }while(depamt < 100);
+  		
+  	}
+}
+class acc extends BankSystem
+{
+    public
+    void dep()
+    {
+       balance =  depamt + balance; 
+    }
+    void with()
+{   
+    int flag = 0;
+    do{
+        if(withamt > limit)
+        {
+            flag = 1;
+            System.out.println("can");
+        }
+        else if(withamt > balance)
+        {
+            flag = 1;
+            System.out.println("can");
+        }
+    }while(withamt > balance);
+        if(flag == 0)
+        {
+            balance = balance - withamt;
+        }
+    
+
+}
+    void check()
+    {
+        System.out.println("bal "+balance);
+    }
+    void limit()
+    {
+
+        System.out.println("limit"+limit);
+        if( withamt > limit)
+        {
+            System.out.println("upto limit ");
+        }
+    }
+}
+public class bank {
+  public static void main(String args[])
+  {
+	  acc a = new acc();
+      a.create();
+      a.dep();
+      a.with();
+      a.limit();
+      a.check();
+      a.with();
+      a.dep();
+  }
+}

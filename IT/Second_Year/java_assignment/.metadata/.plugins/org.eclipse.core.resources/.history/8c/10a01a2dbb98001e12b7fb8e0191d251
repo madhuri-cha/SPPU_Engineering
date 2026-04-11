@@ -1,0 +1,15 @@
+
+interface vehicle
+{
+	void changegear();
+	void speedup();
+	void applybreak();
+}
+class 
+{
+	
+}
+public class Interface {
+
+	
+}

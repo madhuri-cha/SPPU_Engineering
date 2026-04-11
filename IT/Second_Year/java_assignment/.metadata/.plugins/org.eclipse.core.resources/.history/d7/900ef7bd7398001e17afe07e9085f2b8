@@ -1,0 +1,78 @@
+import java.util.Scanner;
+public class pr2 {
+	int e_id;
+	String name, mob , gmail;
+	float gs , ns , bp;
+	float hra , da ,pf ,scf;
+	
+	void getdata()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("name");
+		
+		name = sc.nextLine();
+		e_id = sc.nextInt();
+		
+		mob = sc.nextLine();
+		
+          if( mob.length() != 10 )
+          {
+        	mob = sc.nextLine();
+          }
+          
+        gmail = sc.nextLine();
+        
+         boolean validgmail = gmail.contains("@gmail.com");
+         if(validgmail == false )
+          {
+    	   gmail = sc.nextLine();
+           }    
+	}
+	
+	void display()
+	{
+		System.out.println("for Programmer:");
+		System.out.println(+bp);
+		System.out.println(+gs);
+		System.out.println(+ns);
+		System.out.println(+e_id);
+		//System.out.println(+gmail);
+		
+	}
+	void pay()
+	{
+		hra =(0.5f * bp);
+		da =( 0.5f * bp);
+		gs = hra + da + bp;
+		ns = gs - (pf + scf);
+		
+		
+	}
+	public static void main(String args[])
+	{
+		pro p = new pro();
+		System.out.println("programmer ");
+		p.getdata();
+		p.getbp();
+		p.pay();
+		p.display();
+	}
+}
+class pro extends pr2
+{
+	void getbp()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the Basic Pay for Programmer:");
+		bp = sc.nextFloat();
+	}
+}
+class man extends pr2
+{
+	void getbp()
+	{
+		Scanner sc = new Scanner(System.in);
+		bp = sc.nextFloat();
+	}
+}
+

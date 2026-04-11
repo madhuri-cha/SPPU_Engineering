@@ -1,0 +1,132 @@
+import java.util.*;
+public class pr3
+{
+	int copy;
+	String name;
+	float price;
+	
+	
+	void get()
+	{
+		Scanner sc = new Scanner(System.in);
+		name = sc.nextLine();
+		if( name.contains("techno") || name.contains("tech"))
+		{
+			System.out.println("no");
+		}
+		
+	}
+	void display()
+	{
+		System.out.println("name " +name);
+	}
+	
+	void order()
+	{
+		int a_copy = 300;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("cpoy");
+		copy = sc.nextInt();
+		System.out.println("price");
+		price = sc.nextFloat();
+		if(a_copy < copy)
+		{
+			System.out.println("not aval cpoy");
+		}
+		else
+		{
+			System.out.println("aval cpoy");	
+		}
+		float total = copy * price;
+		System.out.println("tt" +total);
+	}
+	
+
+  public static void main(String args[])
+  {
+	  pr3 p = new pr3();
+	  //p.get();
+	  //p.display();
+	  //p.order();
+	  Magazine m = new Magazine();
+	  //m.getM();
+	 // m.mag();
+	  m.receiveIssue();
+	  m.currentIssue();
+  }
+	
+}
+class book
+{
+	
+ 
+}
+class Magazine {
+	
+	String Title;
+	float Price;
+	int Copies;
+	int purchasemonth = 11;
+	int current_issue ;
+
+	void getM() {
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the book title:");
+		Title = sc.nextLine();
+		System.out.println("enter the price:");
+		Price = sc.nextInt();
+	}
+
+	void mag() {
+//		Title="DailyChats";
+//		Price=300.0f;
+		System.out.println("Name of Book:" + Title);
+		System.out.println("Price of Book:" + Price);
+	}
+
+	void orderQuantity() {
+		int availableCopies = 50;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter number of copies you want:");
+		Copies = sc.nextInt();
+		if (Copies <= availableCopies) {
+			System.out.println("copies Available");
+		} 
+		else {
+			System.out.println("Copies are not available"+'\n'+"Please Order from Available copies:"+availableCopies);
+			System.out.println("enter updated count:");
+			Copies = sc.nextInt();
+		}
+	}
+
+	void saleCopy() 
+	{ //override
+		System.out.println("total sale" + Price * Copies);
+	}
+
+	public void receiveIssue() {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the issue present in your magazine");//////// issue date please check issue date in your magzine
+		System.out.println("!!! make sure to enter month");
+		int current_issue = sc.nextInt(); // enter the month
+
+	}
+
+	public void currentIssue() {
+		// in which month you want to receive obviously month is greater than current issue
+		System.out.println("Enter the month of your issue"); // | issue month must be more than issue month present in														// magazine
+		Scanner sc = new Scanner(System.in);
+		System.out.println("!!!! make sure your issue month is more than issue month in magazine");
+		int month = sc.nextInt();
+		if (month >= current_issue)
+		{
+		
+			System.out.println("Your magazine is updated" + month);
+		}
+			else
+			System.out.println("Updated issue month is : " + month);
+	}
+
+}

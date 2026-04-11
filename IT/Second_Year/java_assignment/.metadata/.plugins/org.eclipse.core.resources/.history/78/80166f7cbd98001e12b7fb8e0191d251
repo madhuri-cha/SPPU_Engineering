@@ -1,0 +1,147 @@
+import java.util.Scanner;
+
+public class pr2 {
+
+    int e_id;
+    String name;
+    String mob;
+    String gmail;
+    float gs, ns, bp;
+    float hra, da, pf, scf;
+
+    void getdata() {
+    	
+        Scanner sc = new Scanner(System.in);
+        System.out.println("name");
+
+        name = sc.nextLine();
+        
+        e_id = sc.nextInt();
+
+        sc.nextLine();
+        System.out.println(" gmaile ");
+        gmail = sc.nextLine();
+
+        boolean validgmail = gmail.contains("@gmail.com");
+        
+        if (!validgmail) 
+        {
+        	System.out.println("Enter valid gmail");
+            gmail = sc.nextLine();
+        }
+  mob = sc.nextLine();
+        
+        while( mob.length() != 10) 
+        {
+        	
+            mob = sc.nextLine();
+        }
+    }
+
+    void display()
+    {
+        // String gmail;
+        System.out.println("for Programmer:");
+        System.out.println(+bp);
+        System.out.println(+gs);
+        System.out.println(+ns);
+        System.out.println(+e_id);
+        System.out.println("h " + gmail);
+        System.out.println( " " + name);
+
+    }
+
+    void pay()
+    {
+        hra = (0.5f * bp);
+        da = (0.5f * bp);
+        gs = hra + da + bp;
+        ns = gs - (pf + scf);
+
+    }
+
+    public static void main(String args[]) {
+        pro p = new pro();
+        System.out.println("programmer ");
+        p.getdata();
+        p.getbp();
+        p.pay();
+        p.display();
+    }
+};
+
+class pro extends pr2 {
+    void getbp() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the Basic Pay for Programmer:");
+        bp = sc.nextFloat();
+    }
+};
+
+class man extends pr2 {
+    void getbp() {
+        Scanner sc = new Scanner(System.in);
+        bp = sc.nextFloat();
+    }};
+
+     
+      
+     
+    
+
+    
+
+    
+
+      
+
+    
+
+    
+
+    
+     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+     
+    
+
+        
+            
+            
+            
+            
+        
+    
+
+    
+
+
+    
+
+    
+
+    
+
+    
+
+
+
+
+                    
+
+                

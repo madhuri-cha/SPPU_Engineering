@@ -1,0 +1,163 @@
+package oop1;
+import java.util.Scanner;
+
+public class Employee 
+{
+	String Emp_name, Address, Mail_Id, Mobile_no;
+	int Emp_Id;
+	float BP;
+	float Gross_Salary , Net_Salary;
+	float DA, HRA, PF, SCF;
+
+	void Get_employee_details()
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the Employee name:"); // Employee name
+		Emp_name = sc.nextLine();
+
+		System.out.println("enter the employee Id:"); // employee ID
+		Emp_Id = sc.nextInt();
+
+		sc.nextLine(); 
+		System.out.println("Enter the Employee Address:"); // Employee Address
+		Address = sc.nextLine();
+
+		System.out.println("Enter the Employee Mail Id:"); // employee mail Id
+		Mail_Id = sc.nextLine();
+		
+		boolean Valid_ID = Mail_Id.contains("@gmail.com");
+		
+		while(Valid_ID == false) 
+		{ 
+			System.out.println("Please enter the valid Email ID");
+			Mail_Id = sc.nextLine();
+		 }
+		
+		System.out.println("Enter the Employee Mobile NO:"); // employee Mobile no.
+		Mobile_no = sc.nextLine();
+		int length=Mobile_no.length();
+		 
+		while(length!=10)
+		 { 
+			System.out.println("Please Enter the valid number");
+			Mobile_no = sc.nextLine();
+		 }
+	
+}
+	void GeneratePaySlip() {            
+
+		DA = 0.97f * BP;                              //DA= Dearness Allowance
+		HRA = 0.10f * BP;                             //HRA= House Rent Allowances
+		PF = 0.12f * BP;                              //PF= Provident Fund
+		SCF = 0.001f * BP;                         // SCF= staff club fund
+		Gross_Salary = BP + DA + HRA;            // gross salary=BP+DA+HRA
+		Net_Salary = Gross_Salary - (PF + SCF);
+	}
+
+	void displaySlip() {
+		System.out.println("---------Employee Details--------");
+		System.out.println("Employee Name:" + Emp_name);
+		System.out.println("Employee ID:" + Emp_Id);
+		System.out.println("Employee Address:" + Address);
+		System.out.println("Employee Mail ID:" + Mail_Id);
+		System.out.println("Employee Mobile No:" + Mobile_no);
+		System.out.println("------ PAY SLIP------");
+		System.out.println("Basic Pay:" + BP);
+		System.out.println("Gross Salary:" + Gross_Salary);
+		System.out.println("Net Salary:" + Net_Salary);
+	}
+
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		int choice;
+		System.out.println("-------------------");
+		System.out.println("1.Programmer Pay slip " + '\n' + "2.Team Lead pay slip" + '\n'
+				+ "3.Assistant project Manager pay slip" + '\n' + "4.Project Manager Pay Slip"+'\n'+"5.Exit");
+		System.out.println("-------------------");
+		do {
+			System.out.println("enter your choice:");
+			choice = sc.nextInt();
+			switch (choice) {
+			case 1:
+				System.out.println("Programmer Pay Slip Generated");
+				Programmer pm = new Programmer();
+				pm.Get_employee_details();
+				pm.getBP();
+				pm.GeneratePaySlip();
+				pm.displaySlip();
+				break;
+
+			case 2:
+				System.out.println("Team lead Pay Slip Generated");
+				Team_Lead tm = new Team_Lead();
+				tm.Get_employee_details();
+				tm.getBP();
+				tm.GeneratePaySlip();
+				tm.displaySlip();
+				break;
+
+			case 3:
+				System.out.println("Assistant Project Manager Pay Slip Generated");
+				Assistant_Project_Manager apm = new Assistant_Project_Manager();
+				apm.Get_employee_details();
+				apm.getBP();
+				apm.GeneratePaySlip();
+				apm.displaySlip();
+				break;
+
+			case 4:
+				System.out.println(" Project Manager Pay Slip Generated");
+				Project_Manager pmg = new Project_Manager();
+				pmg.Get_employee_details();
+				pmg.getBP();
+				pmg.GeneratePaySlip();
+				pmg.displaySlip();
+				break;
+			case 5:
+				System.out.println("Successfully Executed");
+				break;
+			default:
+				System.out.println("Invalid choice" + '\n' + "Try Again!!!!");
+				
+			}
+		} while (choice != 5);
+	}
+}
+
+class Programmer extends Employee { // Inheritance // derived class
+	Scanner sc = new Scanner(System.in);
+
+	void getBP()
+	 { 
+		System.out.println("enter the Basic Pay for Programmer:");
+		BP = sc.nextFloat();
+	}
+}
+
+class Team_Lead extends Employee {
+	void getBP() { 
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the Basic Pay :");
+		BP = sc.nextFloat();
+	}
+}
+
+class Assistant_Project_Manager extends Employee {
+	void getBP() 
+	{ 
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the Basic Pay :");
+		BP = sc.nextFloat();
+	}
+}
+
+class Project_Manager extends Employee {
+	Scanner sc = new Scanner(System.in);
+
+	void getBP() { 
+		System.out.println("enter the Basic Pay :");
+		BP = sc.nextFloat();
+
+	}
+}

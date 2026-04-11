@@ -1,0 +1,28 @@
+
+public class ShoppingCartTest {
+	 public static void main(String[] args) 
+	    {
+	        ShoppingCart cart = new ShoppingCart();
+	        Item item1 = new Item("Plate",60);
+	        Item item2 = new Item("Glasses",120);
+	        Item item3 = new Item("Rice 5 kg",250);
+	        Item item4 = new Item("Oil 15L Pack",1400);
+	        Item item5 = new Item("Shoes",250);
+	        Item item6 = new Item("Men's Shirt",400);
+	        Item item7 = new Item("Tea Powder",80);
+	        Item item8 = new Item("Coffee Powder",100);
+
+	        cart.addItem(item1);
+	        cart.addItem(item2);
+	        cart.addItem(item3);
+	        cart.addItem(item4);
+	        cart.addItem(item5);
+	        cart.addItem(item6);
+	        cart.addItem(item7);
+	        cart.addItem(item8);
+
+	        cart.pay(new PaypalStrategy("yogeshborhade24@gmail.com", "PaSsWoRd"));
+	   //     cart.pay(new CreditCardStrategy("Yogesh Borhade", "12365896574", "125", "11/24"));
+	     //   cart.pay(new BitCoinStrategy("shoppingmall@bitcoin.sbi"));
+	    }
+}

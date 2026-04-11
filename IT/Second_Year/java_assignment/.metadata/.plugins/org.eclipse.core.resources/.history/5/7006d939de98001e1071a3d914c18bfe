@@ -1,0 +1,44 @@
+import java.util.*;
+class publication
+{
+	int copy;
+	String name;
+	float price;
+	
+	
+	void get()
+	{
+		Scanner sc = new Scanner(System.in);
+		name = sc.nextLine();
+		
+	}
+	void display()
+	{
+		System.out.println("name " +name);
+	}
+	
+	void order()
+	{
+		int a_copy = 300;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("cpoy");
+		copy = sc.nextInt();
+		System.out.println("price");
+		price = sc.nextFloat();
+		if(a_copy < copy)
+		{
+			System.out.println("not aval cpoy");
+		}
+		else
+		{
+			System.out.println("aval cpoy");	
+		}
+		float total = copy * price;
+		System.out.println("tt" +total);
+	}
+	
+}
+public class pr3 {
+  
+	
+}

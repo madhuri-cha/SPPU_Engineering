@@ -1,0 +1,106 @@
+import java.util.*;
+interface vehicle
+{
+	
+	void changegear();
+	void speedup();
+	void applybreak();
+};
+
+class Bicycle implements vehicle
+
+{
+	int gear , speed;
+	public Bicycle()
+	{
+		int gear = 0;
+		int speed = 0;
+	}
+	public void changegear()
+	{
+		System.out.println("ENter Gear");
+		Scanner sc = new Scanner(System.in);
+		
+		int newgear = sc.nextInt();
+		
+		
+	}
+	public void speedup()
+	{
+		System.out.println(" speed inc");
+		Scanner sc = new Scanner(System.in);
+		
+		int newspeed = sc.nextInt();
+	    speed = speed + newspeed;
+		
+		System.out.println("speed"+speed);
+	}
+	public void applybreak()
+	{
+		System.out.println(" speed inc");
+		Scanner sc = new Scanner(System.in);
+		
+		int newspeed = sc.nextInt();
+		speed = speed - newspeed;
+		if(newspeed < 0)
+		{
+			speed = 0;
+		}
+
+		System.out.println("speed"+speed);
+	}
+}
+class car implements vehicle
+{
+
+	int gear , speed;
+	public car ()
+	{
+		int gear = 0;
+		int speed = 0;
+	}
+	public void changegear()
+	{
+		System.out.println("ENter Gear");
+		Scanner sc = new Scanner(System.in);
+		
+		int newgear = sc.nextInt();
+		
+		
+	}
+	public void speedup()
+	{
+		System.out.println(" speed inc");
+		Scanner sc = new Scanner(System.in);
+		
+		int newspeed = sc.nextInt();
+	    speed = speed + newspeed;
+		
+		System.out.println("speed"+speed);
+	}
+	public void applybreak()
+	{
+		System.out.println(" speed inc");
+		Scanner sc = new Scanner(System.in);
+		
+		int newspeed = sc.nextInt();
+		speed = speed - newspeed;
+		if(speed < 0)
+		{
+			speed = 0;
+		}
+
+		System.out.println("speed"+speed);
+	}
+}
+public class Interface
+{
+	public static void main(String args[])
+	{
+		car c = new car();
+		c.speedup();
+		c.applybreak();
+		c.changegear();
+				
+	}
+}

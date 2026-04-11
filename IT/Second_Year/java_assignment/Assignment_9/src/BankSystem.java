@@ -1,0 +1,167 @@
+
+import java.util.Scanner;
+
+class Banksystem {
+	
+	Scanner sc = new Scanner(System.in);
+	public String name; // name of account holder
+	public static String AccNumCnt = "649687874123"; // account number counter
+    int i = 1;
+	public String AccID = "1000"; // account id
+	public double balance; // for storing balance
+	public double limit = 20000;
+	public double witAmt;
+
+	// function to create an account - 
+
+	public void createAccount() {
+
+		System.out.println("Enter your name: ");
+		name = sc.nextLine(); // get name
+
+		do {
+			System.out.println("Basic balance: ");
+			balance = sc.nextDouble(); // initial deposit (must be minimum Rs.1000)
+			if (balance < 1000) {
+				System.out.println("Initial balance should be minimum Rs.1000!");
+			}
+			else {
+				System.out.println("\nCongrats !! Account created!");
+			}
+		} while (balance < 1000);
+        i++;
+		AccNumCnt = AccNumCnt + i;
+		AccID = AccNumCnt; // assigns account id automatically
+	}
+	
+	// function to deposit money in existing account - 
+}
+class AmountTransaction extends Banksystem
+{
+	
+	public void depositMoney() {//////////
+
+        System.out.println("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+		double depAmt = 0;
+		System.out.println("Enter amount that you want to deposit: ");
+		depAmt = sc.nextDouble();
+		balance = balance + depAmt;
+		System.out.println("Your new balance is: " + balance);
+        System.out.println("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+
+	}
+	
+	// function to withdraw money from an account - 
+
+	public void withdrawMoney() {
+
+        System.out.println("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+		 witAmt = 0;
+		 int flag = 0;
+		do {
+			System.out.println("Enter amount that you want to withdraw: ");
+			witAmt = sc.nextDouble();
+			if(witAmt > limit)
+			{
+				flag = 1;
+				System.out.println("Sorry ! You can not withdraw more than daily limit = "+limit+"Rs");
+			}
+			// check if withdrawal amount is less than balance, only proceed if true - 
+			else if (witAmt > balance) {
+				System.out.println("Account balance is less! Cannot withdraw...transaction failed!");
+			
+			}
+		} while (witAmt > balance);
+		if(flag == 0)
+		{
+			balance = balance - witAmt;
+			System.out.println("Your current balance is: " + balance);
+		}
+		
+        System.out.println("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+	}
+	
+	// function to check balance of account - 
+
+	public void checkBal() {
+
+        System.out.println("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+		System.out.println("Your current balance is: " + balance);
+        System.out.println("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+	}
+	
+	//function for withdrawal limit
+	public void withdrawLimit()
+	{
+		System.out.println("Your daily withdrawal limit is "+limit+"rs");
+
+		if(witAmt > limit)
+		{
+			System.out.println("Sorry ! You can not withdraw more than daily limit = "+limit+"Rs");
+			withdrawMoney();
+		}
+	}
+	// function to display account details - 
+
+	public void displayAcc() {
+
+        System.out.println("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+		System.out.println("Displaying account details: ");
+		System.out.println("Name: " + name);
+		System.out.println("Account Number: " + AccID);
+		System.out.println("Current balance: " + balance);
+        System.out.println("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n");
+	}
+}
+
+
+public class BankSystem
+{
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		 AmountTransaction obj = new  AmountTransaction(); 
+		
+		int choice = 0;
+		System.out.println("-----------------------------------------------------");
+		System.out.println("\tCentral Bank of India \t");
+		System.out.println("------------------------------------------------------");
+		do {
+	
+			System.out.println("1.Create an Account ");
+			System.out.println("2.Deposit Money");
+			System.out.println("3.Withdraw Money");
+			System.out.println("4.Check Balance ");
+			System.out.println("5.Honor Daily Withdraw Limit");
+			System.out.println("6. Display Account Information ");
+			System.out.println("7.Exit");
+			
+			System.out.println("----------------------------------------------------");
+			
+            choice = s.nextInt();
+
+			switch (choice) {
+			case 1:
+				obj.createAccount();
+				break;
+			case 2:
+				obj.depositMoney();
+				break;
+			case 3:
+				obj.withdrawMoney();
+				break;
+			case 4:
+				obj.checkBal();
+			case 5:
+				obj.withdrawLimit();
+				break;
+			case 6:
+				obj.displayAcc();
+				break;
+			default:
+				{
+					System.out.println("Invalid Input!");
+				}
+			}
+		} while (choice != 6);
+	}
+}

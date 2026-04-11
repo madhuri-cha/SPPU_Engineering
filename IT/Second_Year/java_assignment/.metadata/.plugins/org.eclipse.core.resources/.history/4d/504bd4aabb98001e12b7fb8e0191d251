@@ -1,0 +1,21 @@
+
+interface vehicle
+{
+	void changegear();
+	void speedup();
+	void applybreak();
+};
+
+class Bicycle implements vehicle
+
+{
+	void changegear()
+	{
+		
+	}
+	
+}
+public class Interface {
+
+	
+}
